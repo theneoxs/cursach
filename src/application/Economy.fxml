@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" />
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" scaleShape="false" style="-fx-background-color: #F5DEB3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="284.0" layoutY="21.0" prefHeight="66.0" prefWidth="233.0" style="-fx-background-color: 0000000;" text="Окно экономики">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </TextField>
+      <Pane layoutX="151.0" layoutY="445.0" prefHeight="80.0" prefWidth="500.0" style="-fx-border-color: black;">
+         <children>
+            <Label layoutX="139.0" layoutY="2.0" prefHeight="25.0" prefWidth="223.0" text="Расходы на студенческие организации" textAlignment="CENTER" />
+            <TextField layoutX="52.0" layoutY="28.0" prefHeight="25.0" prefWidth="174.0" promptText="Введите номер организации" />
+            <TextField layoutX="288.0" layoutY="28.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="151.0" layoutY="150.0" prefHeight="265.0" prefWidth="500.0" style="-fx-border-color: black;">
+         <children>
+            <TextField alignment="CENTER" layoutX="38.0" layoutY="37.0" prefHeight="25.0" prefWidth="168.0" promptText="Введите номер факультета" />
+            <TextField layoutX="280.0" layoutY="37.0" />
+            <TextField alignment="CENTER" layoutX="38.0" layoutY="113.0" prefHeight="25.0" prefWidth="168.0" promptText="Введите номер группы" />
+            <TextField layoutX="280.0" layoutY="113.0" />
+            <TextField alignment="CENTER" layoutX="38.0" layoutY="190.0" prefHeight="25.0" prefWidth="168.0" promptText="Введите номер студента" />
+            <TextField layoutX="280.0" layoutY="190.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="184.0" layoutY="2.0" prefHeight="25.0" prefWidth="133.0" text="Расходы на стипендии" textAlignment="CENTER" />
+         </children>
+      </Pane>
+      <Button layoutX="307.0" layoutY="542.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="187.0" style="-fx-background-color: #25213E;" text="Выполнить вычисления" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
