@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" scaleShape="false" style="-fx-background-color: #F5DEB3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="586.0" layoutY="169.0" prefHeight="144.0" prefWidth="200.0" style="-fx-border-color: black;">
+         <children>
+            <Button layoutX="33.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Добавление записи" textFill="WHITE" />
+            <Button layoutX="33.0" layoutY="54.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Обновление записи" textFill="WHITE" />
+            <Button layoutX="33.0" layoutY="94.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Удаление записи" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Label layoutX="301.0" layoutY="27.0" prefHeight="72.0" prefWidth="231.0" text="Связующая таблица" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView layoutX="273.0" layoutY="169.0" prefHeight="416.0" prefWidth="287.0">
+         <columns>
+            <TableColumn prefWidth="159.0" text="Organization_has_Student" />
+            <TableColumn prefWidth="126.0" text="Student_idStudent" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
