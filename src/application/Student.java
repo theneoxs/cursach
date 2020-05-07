@@ -23,6 +23,7 @@ public class Student {
 	private ObjectProperty<Date> Year_of_enrollment;
 	private StringProperty Status;
 	private StringProperty Type;
+	private IntegerProperty idGroup;
 
 	public Student() {
 		this.IdStudent=new SimpleIntegerProperty(1);
@@ -34,8 +35,9 @@ public class Student {
 		this.Year_of_enrollment = new SimpleObjectProperty<Date>(Date.valueOf("1337-01-01"));
 		this.Status=new SimpleStringProperty("");
 		this.Type=new SimpleStringProperty("");
+		this.idGroup=new SimpleIntegerProperty(1);
 		}
-	public Student(Integer IdStudent, String Name, String Surname,String Middle_name,Date Date_of_birth, String Sex,Date Year_of_enrollment, String Status, String Type) {
+	public Student(Integer IdStudent, String Name, String Surname,String Middle_name,Date Date_of_birth, String Sex,Date Year_of_enrollment, String Status, String Type, Integer idGroup) {
 		this.IdStudent = new SimpleIntegerProperty(IdStudent);
 		this.Name = new SimpleStringProperty(Name);
 		this.Surname = new SimpleStringProperty(Surname);
@@ -45,6 +47,7 @@ public class Student {
 		this.Year_of_enrollment = new SimpleObjectProperty<Date>(Year_of_enrollment);
 		this.Status = new SimpleStringProperty(Status);
 		this.Type = new SimpleStringProperty(Type);
+		this.idGroup = new SimpleIntegerProperty(idGroup);
 		}
 
 
@@ -74,5 +77,8 @@ public class Student {
 	}
 	public String getType() {
 		return this.Type.get();
+	}
+	public Integer getidGroup() {
+		return this.idGroup.get();
 	}
 }
