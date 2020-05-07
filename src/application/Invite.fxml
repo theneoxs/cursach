@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1250.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="1056.0" layoutY="186.0" prefHeight="144.0" prefWidth="200.0" style="-fx-border-color: black;">
@@ -37,7 +36,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView layoutX="384.0" layoutY="186.0" prefHeight="416.0" prefWidth="669.0">
+      <TableView layoutX="384.0" layoutY="186.0" prefHeight="357.0" prefWidth="671.0">
          <columns>
             <TableColumn prefWidth="100.0" text="idInvite" />
             <TableColumn prefWidth="77.0" text="idStudent" />

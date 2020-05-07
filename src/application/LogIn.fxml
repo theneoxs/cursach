@@ -6,39 +6,42 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForLogin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="139.0" layoutY="40.0" text="Welcome" AnchorPane.topAnchor="50.0">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="175.0" layoutY="116.0" text="Login">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="158.0" layoutY="188.0" text="Password">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfLogin" alignment="CENTER" layoutX="127.0" layoutY="146.0" />
-      <PasswordField fx:id="tfPassword" alignment="CENTER" layoutX="127.0" layoutY="218.0" />
-      <Button fx:id="bLogin" layoutX="144.0" layoutY="296.0" mnemonicParsing="false" onAction="#Log_In" prefHeight="45.0" prefWidth="114.0" text="Log In" AnchorPane.bottomAnchor="50.0">
-         <font>
-            <Font name="Marlett" size="19.0" />
-         </font>
-      </Button>
-      <Label fx:id="lDeny" layoutX="157.0" layoutY="255.0" text="Denied!" textFill="#ee0707">
-         <font>
-            <Font size="25.0" />
-         </font>
+      <Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F2E0CA;">
          <effect>
-            <ColorAdjust brightness="0.14" contrast="0.45" />
+            <ColorAdjust />
          </effect>
-      </Label>
+         <children>
+            <Label layoutX="148.0" layoutY="238.0" prefHeight="33.0" prefWidth="157.0" text="Авторизация студентов" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <PasswordField layoutX="152.0" layoutY="315.0" />
+            <Button layoutX="309.0" layoutY="506.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="199.0" style="-fx-background-color: #25213E;" text="Ограниченный доступ" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="486.0" layoutY="238.0" prefHeight="33.0" prefWidth="176.0" text="Авторизация сотрудников" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField layoutX="152.0" layoutY="290.0" />
+            <PasswordField layoutX="500.0" layoutY="315.0" />
+            <TextField layoutX="500.0" layoutY="290.0" />
+            <TextField alignment="TOP_CENTER" layoutX="276.0" layoutY="81.0" style="-fx-background-color: 000000;" text="Авторизация">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </TextField>
+            <Pane layoutX="127.0" layoutY="65.0" prefHeight="350.0" prefWidth="550.0" style="-fx-border-color: black;" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
