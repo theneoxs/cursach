@@ -45,6 +45,12 @@ public class ContrForLogin {
         String level_accept = scan.nextLine();
         lvl.close();
         
+        if (level_accept.equals("0")) {
+			nextfile = "Student.fxml";
+			namefile = "Admin Panel";
+			access = true;
+		}
+        
 		if (tr && access) {
 			lDeny.setVisible(false);
 			
@@ -55,7 +61,7 @@ public class ContrForLogin {
 			
 			root = FXMLLoader.load(getClass().getResource(nextfile));
 			
-			Scene scene = new Scene(root,1000,400);
+			Scene scene = new Scene(root,1200,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle(namefile);

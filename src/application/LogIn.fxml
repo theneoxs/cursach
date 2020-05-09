@@ -9,38 +9,49 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForLogin">
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F2E0CA;">
          <effect>
             <ColorAdjust />
          </effect>
          <children>
-            <Label layoutX="148.0" layoutY="238.0" prefHeight="33.0" prefWidth="157.0" text="Авторизация студентов" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <PasswordField layoutX="152.0" layoutY="315.0" />
-            <Button layoutX="309.0" layoutY="506.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="199.0" style="-fx-background-color: #25213E;" text="Ограниченный доступ" textAlignment="CENTER" textFill="WHITE">
+            <Pane layoutX="135.0" layoutY="104.0" prefHeight="350.0" prefWidth="550.0" style="-fx-border-color: black;">
+               <children>
+                  <TextField fx:id="tfLogin" layoutX="200.0" layoutY="141.0" />
+                  <PasswordField fx:id="tfPassword" layoutX="201.0" layoutY="208.0" />
+                  <Label layoutX="253.0" layoutY="108.0" prefHeight="33.0" prefWidth="43.0" text="Логин" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField alignment="TOP_CENTER" layoutX="141.0" layoutY="53.0" style="-fx-background-color: 000000;" text="Авторизация">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="248.0" layoutY="175.0" prefHeight="33.0" prefWidth="52.0" text="Пароль" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="bLogin" layoutX="175.0" layoutY="292.0" mnemonicParsing="false" onAction="#Log_In" prefHeight="33.0" prefWidth="199.0" style="-fx-background-color: #25213E;" text="Вход" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="lDeny" layoutX="138.0" layoutY="246.0" prefHeight="33.0" prefWidth="275.0" text="Некорректный ввод, попробуйте ещё раз" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button layoutX="310.0" layoutY="526.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="199.0" style="-fx-background-color: #25213E;" text="Ограниченный доступ" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Label layoutX="486.0" layoutY="238.0" prefHeight="33.0" prefWidth="176.0" text="Авторизация сотрудников" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <TextField layoutX="152.0" layoutY="290.0" />
-            <PasswordField layoutX="500.0" layoutY="315.0" />
-            <TextField layoutX="500.0" layoutY="290.0" />
-            <TextField alignment="TOP_CENTER" layoutX="276.0" layoutY="81.0" style="-fx-background-color: 000000;" text="Авторизация">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </TextField>
-            <Pane layoutX="127.0" layoutY="65.0" prefHeight="350.0" prefWidth="550.0" style="-fx-border-color: black;" />
          </children>
       </Pane>
    </children>

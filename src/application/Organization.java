@@ -21,13 +21,13 @@ public class Organization {
 		this.Name_of_head_of_organization=new SimpleStringProperty("");
 		this.Organization_direction=new SimpleStringProperty("");
 		}
-	public Organization(Integer idOrganization, String Name_of_organization,String Name_of_head_of_organization, String Organization_direction, String Number_of_faculty_members) {
+	public Organization(Integer idOrganization, String Name_of_organization,String Name_of_head_of_organization, String Organization_direction) {
 		this.idOrganization = new SimpleIntegerProperty(idOrganization);
 		this.Name_of_organization = new SimpleStringProperty(Name_of_organization);
 		this.Name_of_head_of_organization = new SimpleStringProperty(Name_of_head_of_organization);
-		this.Organization_direction = new SimpleStringProperty(Number_of_faculty_members);
+		this.Organization_direction = new SimpleStringProperty(Organization_direction);
 		}
-	public Integer getidOrganization() {
+	public Integer getIdOrganization() {
 		return this.idOrganization.get();
 	}
 	public String getName_of_organization() {

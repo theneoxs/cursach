@@ -14,7 +14,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Student {
-	private IntegerProperty IdStudent;
+	private IntegerProperty idStudent;
 	private StringProperty Name;
 	private StringProperty Surname;
 	private StringProperty Middle_name;
@@ -26,19 +26,19 @@ public class Student {
 	private IntegerProperty idGroup;
 
 	public Student() {
-		this.IdStudent=new SimpleIntegerProperty(1);
+		this.idStudent=new SimpleIntegerProperty(0);
 		this.Name= new SimpleStringProperty("");
 		this.Surname= new SimpleStringProperty("");
 		this.Middle_name= new SimpleStringProperty("");
-		this.Date_of_birth = new SimpleObjectProperty<Date>(Date.valueOf("1488-01-01"));
+		this.Date_of_birth = new SimpleObjectProperty<Date>(Date.valueOf("2010-01-01"));
 		this.Sex=new SimpleStringProperty("");
-		this.Year_of_enrollment = new SimpleObjectProperty<Date>(Date.valueOf("1337-01-01"));
+		this.Year_of_enrollment = new SimpleObjectProperty<Date>(Date.valueOf("2010-01-01"));
 		this.Status=new SimpleStringProperty("");
 		this.Type=new SimpleStringProperty("");
-		this.idGroup=new SimpleIntegerProperty(1);
+		this.idGroup=new SimpleIntegerProperty(0);
 		}
 	public Student(Integer IdStudent, String Name, String Surname,String Middle_name,Date Date_of_birth, String Sex,Date Year_of_enrollment, String Status, String Type, Integer idGroup) {
-		this.IdStudent = new SimpleIntegerProperty(IdStudent);
+		this.idStudent = new SimpleIntegerProperty(IdStudent);
 		this.Name = new SimpleStringProperty(Name);
 		this.Surname = new SimpleStringProperty(Surname);
 		this.Middle_name = new SimpleStringProperty(Middle_name);
@@ -52,7 +52,7 @@ public class Student {
 
 
 	public Integer getIdStudent() {
-		return this.IdStudent.get();
+		return this.idStudent.get();
 	}
 	public String getName() {
 		return this.Name.get();
@@ -78,7 +78,7 @@ public class Student {
 	public String getType() {
 		return this.Type.get();
 	}
-	public Integer getidGroup() {
+	public Integer getIdGroup() {
 		return this.idGroup.get();
 	}
 }
