@@ -77,7 +77,7 @@ public class ContrForGroup {
 	private void handleNew() throws IOException{
 		System.out.println("Work!");
 		if (isInputValid(1)) {
-			db.newGroup(tfNumber_of_group.getText(), tfName_of_head_of_group.getText(), Integer.parseInt(tfNumber_of_group_members.getText()), Integer.parseInt(tfFaculty_idFaculty.getText()));
+			db.newGroup(tfNumber_of_group.getText(), tfName_of_head_of_group.getText(), 0, Integer.parseInt(tfFaculty_idFaculty.getText()));
 			tvGroup.setItems(FXCollections.observableArrayList(db.getAllGroup()));
 		}
 	}
@@ -104,15 +104,6 @@ public class ContrForGroup {
 			}
 			if (tfName_of_head_of_group.getText() == null || tfName_of_head_of_group.getText().length() == 0) {
 				errorMessage += "No valid name of head!\n";
-			}
-			if (tfNumber_of_group_members.getText() == null || tfNumber_of_group_members.getText().length() == 0) {
-				errorMessage += "No valid members!\n";
-			} else {
-				try {
-					Integer.parseInt(tfNumber_of_group_members.getText());
-				} catch (NumberFormatException e) {
-					errorMessage += "Format ID is not a number!\n";
-				}
 			}
 			if (tfFaculty_idFaculty.getText() == null || tfFaculty_idFaculty.getText().length() == 0) {
 				errorMessage += "No valid faculty!\n";

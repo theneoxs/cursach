@@ -12,17 +12,19 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForStudent">
    <children>
-      <Pane layoutX="985.0" layoutY="391.0" prefHeight="234.0" prefWidth="193.0" style="-fx-border-color: black;">
+      <Pane layoutX="985.0" layoutY="391.0" prefHeight="303.0" prefWidth="193.0" style="-fx-border-color: black;">
          <children>
-            <Button layoutX="36.0" layoutY="48.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Студенты" textFill="WHITE" />
-            <Button fx:id="bGroup" layoutX="36.0" layoutY="92.0" mnemonicParsing="false" onAction="#winGroup" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Группы" textFill="WHITE" />
-            <Button layoutX="36.0" layoutY="138.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Факультеты" textFill="WHITE" />
-            <Button fx:id="bOrg" layoutX="36.0" layoutY="184.0" mnemonicParsing="false" onAction="#winOrg" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Организации" textFill="WHITE" />
+            <Button disable="true" layoutX="36.0" layoutY="48.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Студенты" textFill="WHITE" />
+            <Button fx:id="bGroup" layoutX="36.0" layoutY="88.0" mnemonicParsing="false" onAction="#winGroup" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Группы" textFill="WHITE" />
+            <Button fx:id="bFaculty" layoutX="36.0" layoutY="128.0" mnemonicParsing="false" onAction="#winFaculty" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Факультеты" textFill="WHITE" />
+            <Button fx:id="bOrg" layoutX="36.0" layoutY="168.0" mnemonicParsing="false" onAction="#winOrg" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Организации" textFill="WHITE" />
             <Label layoutX="36.0" layoutY="4.0" prefHeight="36.0" prefWidth="121.0" text="Переход по окнам">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
+            <Button fx:id="bEconomy" layoutX="36.0" layoutY="208.0" mnemonicParsing="false" onAction="#winEconomy" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Стипендии" textFill="WHITE" />
+            <Button fx:id="bOrgS" layoutX="36.0" layoutY="248.0" mnemonicParsing="false" onAction="#winOrgS" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Список связей" textFill="WHITE" />
          </children>
       </Pane>
       <Pane layoutX="25.0" layoutY="582.0" prefHeight="65.0" prefWidth="461.0" style="-fx-border-color: black;">
@@ -127,5 +129,7 @@
       <ComboBox fx:id="cbSID" layoutX="233.0" layoutY="535.0" prefHeight="25.0" prefWidth="200.0" />
       <ComboBox fx:id="cbSex" layoutX="233.0" layoutY="375.0" prefHeight="25.0" prefWidth="200.0" />
       <ComboBox fx:id="cbStatus" layoutX="233.0" layoutY="455.0" prefHeight="25.0" prefWidth="200.0" />
+      <Button fx:id="bClient" layoutX="1048.0" layoutY="60.0" mnemonicParsing="false" onAction="#winClient" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Клиенты" textFill="WHITE" />
+      <Button fx:id="bInvite" layoutX="901.0" layoutY="60.0" mnemonicParsing="false" onAction="#winInvite" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Запросы" textFill="WHITE" />
    </children>
 </AnchorPane>

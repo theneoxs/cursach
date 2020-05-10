@@ -52,7 +52,7 @@ public class client {
 	public Date getDate_of_autorization() {
 		return this.Date_of_autorization.get();
 	}
-	public Integer Access_level() {
+	public Integer getAccess_level() {
 		return this.Access_level.get();
 	}
 	public String getInfo() {

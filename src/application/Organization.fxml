@@ -52,7 +52,7 @@
             <Button layoutX="36.0" layoutY="48.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Студенты" textFill="WHITE" />
             <Button layoutX="36.0" layoutY="92.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Группы" textFill="WHITE" />
             <Button layoutX="36.0" layoutY="138.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Факультеты" textFill="WHITE" />
-            <Button layoutX="36.0" layoutY="184.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Организации" textFill="WHITE" />
+            <Button disable="true" layoutX="36.0" layoutY="184.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Организации" textFill="WHITE" />
             <Label layoutX="36.0" layoutY="4.0" prefHeight="36.0" prefWidth="121.0" text="Переход по окнам">
                <font>
                   <Font size="14.0" />
@@ -60,7 +60,7 @@
             </Label>
          </children>
       </Pane>
-      <TextField fx:id="tfidOrganization" layoutX="212.0" layoutY="346.0" AnchorPane.topAnchor="345.0" />
+      <TextField fx:id="tfidOrganization" editable="false" layoutX="212.0" layoutY="346.0" AnchorPane.topAnchor="345.0" />
       <TextField fx:id="tfOrganization_direction" layoutX="212.0" layoutY="486.0" prefHeight="72.0" prefWidth="186.0" AnchorPane.topAnchor="465.0" />
       <TextField fx:id="tfName_of_head_of_organization" layoutX="212.0" layoutY="450.0" AnchorPane.topAnchor="425.0" />
       <TextField fx:id="tfName_of_organization" layoutX="212.0" layoutY="410.0" AnchorPane.topAnchor="385.0" />

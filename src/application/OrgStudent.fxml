@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" scaleShape="false" style="-fx-background-color: #F5DEB3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" scaleShape="false" style="-fx-background-color: #F5DEB3;" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForOrgS">
    <children>
-      <Pane layoutX="87.0" layoutY="410.0" prefHeight="144.0" prefWidth="200.0" style="-fx-border-color: black;">
+      <Pane layoutX="86.0" layoutY="349.0" prefHeight="144.0" prefWidth="200.0" style="-fx-border-color: black;">
          <children>
-            <Button layoutX="33.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Добавление записи" textFill="WHITE" />
-            <Button layoutX="33.0" layoutY="54.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Обновление записи" textFill="WHITE" />
-            <Button layoutX="33.0" layoutY="94.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Удаление записи" textFill="WHITE" />
+            <Button fx:id="bNew" layoutX="33.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleNew" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Добавление записи" textFill="WHITE" />
+            <Button fx:id="bEdit" layoutX="33.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleUpd" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Обновление записи" textFill="WHITE" />
+            <Button fx:id="bDelete" layoutX="33.0" layoutY="94.0" mnemonicParsing="false" onAction="#handleDel" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Удаление записи" textFill="WHITE" />
          </children>
       </Pane>
       <Label layoutX="301.0" layoutY="27.0" prefHeight="72.0" prefWidth="231.0" text="Связующая таблица" textAlignment="CENTER">
@@ -23,23 +23,23 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView layoutX="389.0" layoutY="170.0" prefHeight="416.0" prefWidth="287.0">
+      <TableView fx:id="tvOrgStudent" layoutX="389.0" layoutY="170.0" prefHeight="416.0" prefWidth="287.0">
          <columns>
-            <TableColumn prefWidth="159.0" text="Organization_has_Student" />
-            <TableColumn prefWidth="126.0" text="Student_idStudent" />
+            <TableColumn fx:id="tcOrganization_idOrganization" prefWidth="159.0" text="Organization_idOrganization" />
+            <TableColumn fx:id="tcStudent_idStudent" prefWidth="126.0" text="Student_idStudent" />
          </columns>
       </TableView>
-      <Label layoutX="68.0" layoutY="300.0" text="ID факультета">
+      <Label layoutX="67.0" layoutY="221.0" text="ID организации">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="68.0" layoutY="338.0" text="Название факультета">
+      <Label layoutX="67.0" layoutY="259.0" text="ID студента">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="241.0" layoutY="338.0" prefHeight="25.0" prefWidth="65.0" />
-      <TextField layoutX="241.0" layoutY="300.0" prefHeight="25.0" prefWidth="65.0" />
+      <TextField fx:id="tfStudent_idStudent" layoutX="240.0" layoutY="259.0" prefHeight="25.0" prefWidth="65.0" />
+      <TextField fx:id="tfOrganization_idOrganization" layoutX="240.0" layoutY="221.0" prefHeight="25.0" prefWidth="65.0" />
    </children>
 </AnchorPane>

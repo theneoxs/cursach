@@ -9,71 +9,57 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1250.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1250.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForInvite">
    <children>
-      <Pane layoutX="1056.0" layoutY="186.0" prefHeight="144.0" prefWidth="200.0" style="-fx-border-color: black;">
+      <Pane layoutX="14.0" layoutY="209.0" prefHeight="72.0" prefWidth="427.0" style="-fx-border-color: black;">
          <children>
-            <Button layoutX="33.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Добавление записи" textFill="WHITE" />
-            <Button layoutX="33.0" layoutY="54.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Обновление записи" textFill="WHITE" />
-            <Button layoutX="33.0" layoutY="94.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Удаление записи" textFill="WHITE" />
+            <Button fx:id="bAccept" layoutX="30.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleAcc" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Принять" textFill="WHITE" />
+            <Button fx:id="bDenied" layoutX="264.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleDen" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Отклонить" textFill="WHITE" />
          </children>
       </Pane>
-      <Pane layoutX="24.0" layoutY="53.0" prefHeight="144.0" prefWidth="352.0" style="-fx-border-color: black;">
-         <children>
-            <Label alignment="CENTER" layoutX="116.0" layoutY="14.0" prefHeight="36.0" prefWidth="121.0" text="Фильтры" textAlignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Button layoutX="4.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="Фильтрация по дате приглашения" />
-            <Button layoutX="4.0" layoutY="98.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="243.0" text="Фильтрация по коду организации" />
-            <TextField alignment="CENTER" layoutX="262.0" layoutY="49.0" prefHeight="27.0" prefWidth="79.0" promptText="Дата" />
-            <TextField alignment="CENTER" layoutX="268.0" layoutY="98.0" prefHeight="25.0" prefWidth="67.0" promptText="Код" />
-         </children>
-      </Pane>
-      <Label layoutX="500.0" layoutY="33.0" prefHeight="72.0" prefWidth="251.0" text="Таблица приглашений" textAlignment="CENTER">
+      <Label layoutX="530.0" layoutY="34.0" prefHeight="72.0" prefWidth="190.0" text="Таблица заявок" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView layoutX="465.0" layoutY="189.0" prefHeight="357.0" prefWidth="573.0">
+      <TableView fx:id="tvInvite" layoutX="465.0" layoutY="189.0" prefHeight="357.0" prefWidth="573.0">
          <columns>
-            <TableColumn prefWidth="100.0" text="idInvite" />
-            <TableColumn prefWidth="77.0" text="idStudent" />
-            <TableColumn prefWidth="105.0" text="idOrganization" />
-            <TableColumn prefWidth="182.0" text="Message" />
-            <TableColumn prefWidth="106.0" text="Date" />
+            <TableColumn fx:id="tcidInvite" prefWidth="100.0" text="idInvite" />
+            <TableColumn fx:id="tcidStudent" prefWidth="77.0" text="idStudent" />
+            <TableColumn fx:id="tcidOrganization" prefWidth="105.0" text="idOrganization" />
+            <TableColumn fx:id="tcMessage" prefWidth="182.0" text="Message" />
+            <TableColumn fx:id="tcdate" prefWidth="106.0" text="Date" />
          </columns>
       </TableView>
-      <Label layoutX="24.0" layoutY="326.0" text="ID приглашения">
+      <Label layoutX="28.0" layoutY="328.0" text="ID приглашения">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="487.0" text="Дата отправки">
+      <Label layoutX="27.0" layoutY="521.0" text="Дата отправки">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="364.0" text="ID студента">
+      <Label layoutX="28.0" layoutY="366.0" text="ID студента">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="405.0" text="ID организации">
+      <Label layoutX="28.0" layoutY="407.0" text="ID организации">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="443.0" text="Сообщение приглашения">
+      <Label layoutX="28.0" layoutY="446.0" text="Сообщение приглашения">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="302.0" layoutY="487.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField layoutX="302.0" layoutY="443.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField layoutX="302.0" layoutY="405.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField layoutX="302.0" layoutY="364.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField layoutX="302.0" layoutY="326.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfdate" editable="false" layoutX="305.0" layoutY="521.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfMessage" editable="false" layoutX="306.0" layoutY="446.0" prefHeight="60.0" prefWidth="121.0" />
+      <TextField fx:id="tfidOrganization" editable="false" layoutX="306.0" layoutY="407.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidStudent" editable="false" layoutX="306.0" layoutY="366.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidInvite" editable="false" layoutX="306.0" layoutY="328.0" prefHeight="25.0" prefWidth="121.0" />
    </children>
 </AnchorPane>

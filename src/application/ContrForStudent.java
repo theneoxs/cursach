@@ -61,6 +61,11 @@ public class ContrForStudent {
 	@FXML private Button bDelete;
 	@FXML private Button bOrg;
 	@FXML private Button bGroup;
+	@FXML private Button bFaculty;
+	@FXML private Button bEconomy;
+	@FXML private Button bOrgS;
+	@FXML private Button bClient;
+	@FXML private Button bInvite;
 	private Database db = new Database();
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 	
@@ -273,7 +278,62 @@ public class ContrForStudent {
 		primaryStage.show();
 		
 	}
-	
+	@FXML
+	private void winFaculty() throws IOException {
+		Stage primaryStage = new Stage();
+		AnchorPane root = new AnchorPane();
+		
+		root = FXMLLoader.load(getClass().getResource("Faculty.fxml"));
+		
+		Scene scene = new Scene(root,1250,700);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Faculty");
+		primaryStage.show();
+		
+	}
+	@FXML
+	private void winOrgS() throws IOException {
+		Stage primaryStage = new Stage();
+		AnchorPane root = new AnchorPane();
+		
+		root = FXMLLoader.load(getClass().getResource("OrgStudent.fxml"));
+		
+		Scene scene = new Scene(root,800,600);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("OrgStudent");
+		primaryStage.show();
+		
+	}
+	@FXML
+	private void winInvite() throws IOException {
+		Stage primaryStage = new Stage();
+		AnchorPane root = new AnchorPane();
+		
+		root = FXMLLoader.load(getClass().getResource("Invite.fxml"));
+		
+		Scene scene = new Scene(root,1250,700);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Invite");
+		primaryStage.show();
+		
+	}
+	@FXML
+	private void winClient() throws IOException {
+		Stage primaryStage = new Stage();
+		AnchorPane root = new AnchorPane();
+		
+		root = FXMLLoader.load(getClass().getResource("client.fxml"));
+		
+		Scene scene = new Scene(root,1200,600);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Client");
+		primaryStage.show();
+		
+	}
 	@FXML
 	private void winGroup() throws IOException {
 		Stage primaryStage = new Stage();
@@ -291,7 +351,34 @@ public class ContrForStudent {
 		    @Override
 		    public void handle(WindowEvent event) {
 		    	try {
-					cblSID = FXCollections.observableArrayList(db.listAllGroup());
+		    		cblSID = FXCollections.observableArrayList(db.listAllGroup());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		    	cbSID.setItems(cblSID);
+		    	cbSID.setValue(cblSID.get(0));
+		    }
+		});
+		
+	}
+	@FXML
+	private void winEconomy() throws IOException {
+		Stage primaryStage = new Stage();
+		AnchorPane root = new AnchorPane();
+		
+		root = FXMLLoader.load(getClass().getResource("Economy.fxml"));
+		
+		Scene scene = new Scene(root,1300,700);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Economy");
+		primaryStage.show();
+		
+		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+		    @Override
+		    public void handle(WindowEvent event) {
+		    	try {
+		    		cblMRID = FXCollections.observableArrayList(db.listAllEc());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
