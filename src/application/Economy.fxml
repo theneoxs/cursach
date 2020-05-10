@@ -17,7 +17,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </TextField>
-      <Pane layoutX="34.0" layoutY="33.0" prefHeight="161.0" prefWidth="500.0" style="-fx-border-color: black;">
+      <Pane layoutX="46.0" layoutY="189.0" prefHeight="161.0" prefWidth="500.0" style="-fx-border-color: black;">
          <children>
             <TextField alignment="CENTER" layoutX="38.0" layoutY="27.0" prefHeight="25.0" prefWidth="168.0" promptText="Введите номер факультета" />
             <TextField layoutX="280.0" layoutY="27.0" />
@@ -35,83 +35,28 @@
       </Pane>
       <TableView layoutX="568.0" layoutY="175.0" prefHeight="416.0" prefWidth="718.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="IdStudent" />
-            <TableColumn prefWidth="75.0" text="Name" />
-            <TableColumn prefWidth="75.0" text="Surname" />
-            <TableColumn prefWidth="89.0" text="Middle_name" />
-            <TableColumn text="Date_of_birth" />
-            <TableColumn prefWidth="61.0" text="Sex" />
-            <TableColumn prefWidth="116.0" text="Year_of_enrollment" />
-            <TableColumn prefWidth="68.0" text="Status" />
-            <TableColumn prefWidth="78.0" text="Type" />
+            <TableColumn prefWidth="347.0" text="Type" />
+            <TableColumn prefWidth="369.0" text="Student_scholarship" />
          </columns>
       </TableView>
-      <Pane layoutX="73.0" layoutY="616.0" prefHeight="65.0" prefWidth="461.0" style="-fx-border-color: black;">
+      <Pane layoutX="73.0" layoutY="456.0" prefHeight="65.0" prefWidth="461.0" style="-fx-border-color: black;">
          <children>
             <Button fx:id="bNew" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleNew" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Добавление записи" textFill="WHITE" />
             <Button fx:id="bEdit" layoutX="167.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleUpd" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Обновление записи" textFill="WHITE" />
             <Button fx:id="bDelete" layoutX="316.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleDel" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Удаление записи" textFill="WHITE" />
          </children>
       </Pane>
-      <TextField fx:id="tfSurname" layoutX="296.0" layoutY="303.0" prefHeight="25.0" prefWidth="200.0" promptText="Фамилия" />
-      <TextField fx:id="tfName" layoutX="296.0" layoutY="263.0" prefHeight="25.0" prefWidth="200.0" promptText="Имя" />
-      <TextField fx:id="tfIdStudent" editable="false" layoutX="296.0" layoutY="223.0" prefHeight="25.0" prefWidth="200.0" promptText="ID" />
-      <TextField fx:id="tfMiddle_name" layoutX="296.0" layoutY="343.0" prefHeight="25.0" prefWidth="200.0" promptText="Отчество" />
-      <TextField fx:id="tfDate_of_birth" layoutX="296.0" layoutY="383.0" prefHeight="25.0" prefWidth="200.0" promptText="Дата рождения" />
-      <TextField fx:id="tfYear_of_enrollment" layoutX="296.0" layoutY="463.0" prefHeight="25.0" prefWidth="200.0" promptText="Год поступления" />
-      <Label layoutX="111.0" layoutY="223.0" text="ID студента">
+      <Label layoutX="111.0" layoutY="383.0" prefHeight="25.0" prefWidth="185.0" text="Стипендия">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="111.0" layoutY="263.0" text="Имя студента">
+      <Label layoutX="111.0" layoutY="423.0" prefHeight="25.0" prefWidth="185.0" text="Тип стипендии">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="111.0" layoutY="303.0" text="Фамилия студента">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="111.0" layoutY="343.0" prefHeight="25.0" prefWidth="143.0" text="Отчество студента">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="111.0" layoutY="383.0" prefHeight="25.0" prefWidth="185.0" text="Дата рождения студента">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="111.0" layoutY="423.0" prefHeight="25.0" prefWidth="185.0" text="Пол студента">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="111.0" layoutY="463.0" prefHeight="25.0" prefWidth="185.0" text="Год поступления">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="111.0" layoutY="503.0" prefHeight="25.0" prefWidth="185.0" text="Статус">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="111.0" layoutY="543.0" prefHeight="25.0" prefWidth="185.0" text="Стипендия">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="111.0" layoutY="583.0" prefHeight="25.0" prefWidth="185.0" text="Группа">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cbMRID" layoutX="296.0" layoutY="544.0" prefHeight="25.0" prefWidth="200.0" />
-      <ComboBox fx:id="cbSID" layoutX="296.0" layoutY="583.0" prefHeight="25.0" prefWidth="200.0" />
-      <ComboBox fx:id="cbSex" layoutX="296.0" layoutY="423.0" prefHeight="25.0" prefWidth="200.0" />
-      <ComboBox fx:id="cbStatus" layoutX="296.0" layoutY="503.0" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox fx:id="cbMRID" layoutX="296.0" layoutY="384.0" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox fx:id="cbSID" layoutX="296.0" layoutY="423.0" prefHeight="25.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
