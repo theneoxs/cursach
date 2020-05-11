@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForInvite">
+   <children>
+      <Label layoutX="324.0" layoutY="28.0" prefHeight="72.0" prefWidth="228.0" text="Составление заявок" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tvInvite" layoutX="466.0" layoutY="209.0" prefHeight="357.0" prefWidth="266.0">
+         <columns>
+            <TableColumn prefWidth="263.0" text="Name_of_organization" />
+         </columns>
+      </TableView>
+      <Pane layoutX="130.0" layoutY="494.0" prefHeight="72.0" prefWidth="308.0" style="-fx-border-color: black;">
+         <children>
+            <Button fx:id="bAccept" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleAcc" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Отправить заявку" textFill="WHITE" />
+            <Button fx:id="bDenied" layoutX="160.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleDen" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Очистить заявку" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Label layoutX="39.0" layoutY="211.0" text="ID приглашения">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="440.0" text="Дата отправки">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="249.0" text="ID студента">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="290.0" text="ID организации">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="329.0" text="Сообщение приглашения">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfdate" editable="false" layoutX="317.0" layoutY="440.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidOrganization" editable="false" layoutX="317.0" layoutY="290.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidStudent" editable="false" layoutX="317.0" layoutY="249.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidInvite" editable="false" layoutX="317.0" layoutY="211.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextArea layoutX="317.0" layoutY="333.0" prefHeight="84.0" prefWidth="121.0" wrapText="true" />
+      <Label layoutX="467.0" layoutY="175.0" text="Список существующих организаций">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

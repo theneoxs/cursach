@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="154.0" layoutY="14.0" prefHeight="66.0" prefWidth="193.0" style="-fx-background-color: 0000000;" text="Авторизация">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </TextField>
+      <Label layoutX="51.0" layoutY="102.0" text="ID пользователя">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="140.0" text="Имя пользователя">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="181.0" text="Фамилия пользователя">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfSurname" layoutX="329.0" layoutY="181.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfName" layoutX="329.0" layoutY="140.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidclient" layoutX="329.0" layoutY="102.0" prefHeight="25.0" prefWidth="121.0" />
+      <Label layoutX="51.0" layoutY="217.0" text="Чекушка">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="329.0" layoutY="217.0" prefHeight="25.0" prefWidth="121.0" />
+   </children>
+</AnchorPane>

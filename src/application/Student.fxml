@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForStudent">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForStudent">
    <children>
-      <Pane layoutX="985.0" layoutY="391.0" prefHeight="303.0" prefWidth="193.0" style="-fx-border-color: black;">
+      <Pane layoutX="985.0" layoutY="425.0" prefHeight="220.0" prefWidth="193.0" style="-fx-border-color: black;">
          <children>
             <Button disable="true" layoutX="36.0" layoutY="48.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Студенты" textFill="WHITE" />
             <Button fx:id="bGroup" layoutX="36.0" layoutY="88.0" mnemonicParsing="false" onAction="#winGroup" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Группы" textFill="WHITE" />
@@ -23,8 +23,6 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="bEconomy" layoutX="36.0" layoutY="208.0" mnemonicParsing="false" onAction="#winEconomy" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Стипендии" textFill="WHITE" />
-            <Button fx:id="bOrgS" layoutX="36.0" layoutY="248.0" mnemonicParsing="false" onAction="#winOrgS" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Список связей" textFill="WHITE" />
          </children>
       </Pane>
       <Pane layoutX="25.0" layoutY="582.0" prefHeight="65.0" prefWidth="461.0" style="-fx-border-color: black;">
