@@ -17,9 +17,9 @@
             <Button fx:id="bDenied" layoutX="264.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleDen" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Отклонить" textFill="WHITE" />
          </children>
       </Pane>
-      <Label layoutX="530.0" layoutY="34.0" prefHeight="72.0" prefWidth="190.0" text="Таблица заявок" textAlignment="CENTER">
+      <Label layoutX="530.0" layoutY="55.0" prefHeight="72.0" prefWidth="190.0" text="Таблица заявок" textAlignment="CENTER">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <TableView fx:id="tvInvite" layoutX="465.0" layoutY="189.0" prefHeight="357.0" prefWidth="573.0">
@@ -61,5 +61,7 @@
       <TextField fx:id="tfidOrganization" editable="false" layoutX="306.0" layoutY="407.0" prefHeight="25.0" prefWidth="121.0" />
       <TextField fx:id="tfidStudent" editable="false" layoutX="306.0" layoutY="366.0" prefHeight="25.0" prefWidth="121.0" />
       <TextField fx:id="tfidInvite" editable="false" layoutX="306.0" layoutY="328.0" prefHeight="25.0" prefWidth="121.0" />
+      <Label layoutX="14.0" layoutY="14.0" text="ID:" />
+      <Label fx:id="lNum" layoutX="37.0" layoutY="14.0" text="#" />
    </children>
 </AnchorPane>

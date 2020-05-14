@@ -33,10 +33,10 @@ public class Invite {
 	public Integer getIdInvite() {
 		return this.idInvite.get();
 	}
-	public Integer getidStudent() {
+	public Integer getIdStudent() {
 		return this.idStudent.get();
 	}
-	public Integer getidOrganization() {
+	public Integer getIdOrganization() {
 		return this.idOrganization.get();
 	}
 	public String getMessage() {

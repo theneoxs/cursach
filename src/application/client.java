@@ -18,6 +18,7 @@ public class client {
 	private ObjectProperty<Date> Date_of_autorization;
 	private IntegerProperty Access_level;
 	private StringProperty Info;
+	private StringProperty Password;
 	// Конструктор пустой
 	public client() {
 		this.idclient = new SimpleIntegerProperty(0);
@@ -26,15 +27,17 @@ public class client {
 		this.Date_of_autorization = new SimpleObjectProperty<Date>(Date.valueOf("2020-01-01"));
 		this.Access_level = new SimpleIntegerProperty(0);
 		this.Info = new SimpleStringProperty("");
+		this.Password = new SimpleStringProperty("");
 	}
 	// Конструктор со всеми переменными
-	public client (Integer idclient, String Name, String Surname, Date Date_of_autorization, Integer Access_level, String Info){
+	public client (Integer idclient, String Name, String Surname, Date Date_of_autorization, Integer Access_level, String Info, String Password){
 		this.idclient = new SimpleIntegerProperty(idclient);
 		this.Name = new SimpleStringProperty(Name);
 		this.Surname = new SimpleStringProperty(Surname);
 		this.Date_of_autorization = new SimpleObjectProperty<Date>(Date_of_autorization);
 		this.Access_level = new SimpleIntegerProperty(Access_level);
 		this.Info = new SimpleStringProperty(Info);
+		this.Password = new SimpleStringProperty(Password);
 	}
 	// Геттеры переменных
 	public Integer getIdclient() {
@@ -57,5 +60,8 @@ public class client {
 	}
 	public String getInfo() {
 		return this.Info.get();
+	}
+	public String getPassword() {
+		return this.Password.get();
 	}
 }

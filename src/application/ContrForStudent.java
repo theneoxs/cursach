@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -26,6 +27,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class ContrForStudent {
+	@FXML private Label lNum;
 	
 	@FXML private TableView<Student> tvStudent;
 	@FXML private TableColumn<Student, Integer> tcIdStudent;
@@ -74,7 +76,38 @@ public class ContrForStudent {
 		FileReader lvl= new FileReader("lvl");
         Scanner scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        String info = scan.nextLine();
+        String id = scan.nextLine();
         lvl.close();
+        String text = id + ",  Access Level: ";
+        if (level_accept.equals("0")) {
+        	text += "Main Admin";
+        }
+        if (level_accept.equals("1")) {
+        	text += "Student";
+        }
+        if (level_accept.equals("2")) {
+        	text += "Student Manager";
+        }
+        if (level_accept.equals("3")) {
+        	text += "Faculty Manager";
+        }
+        if (level_accept.equals("4")) {
+        	text += "Finance Manager";
+        }
+        if (level_accept.equals("5")) {
+        	text += "Administrator";
+        }
+        if (level_accept.equals("6")) {
+        	text += "Organisation Manager";
+        }
+        if (level_accept.equals("7")) {
+        	text += "Teacher";
+        }
+        
+        lNum.setText(text);
 		cblMRID = FXCollections.observableArrayList(db.listAllEc());
 		cbMRID.setItems(cblMRID);
 		cblSex = FXCollections.observableArrayList("Male", "Female");

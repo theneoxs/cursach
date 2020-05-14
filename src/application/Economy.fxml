@@ -11,11 +11,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" scaleShape="false" style="-fx-background-color: #F5DEB3;" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForEconomy">
    <children>
-      <TextField layoutX="534.0" prefHeight="66.0" prefWidth="233.0" style="-fx-background-color: 0000000;" text="Окно экономики">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </TextField>
       <Pane layoutX="46.0" layoutY="189.0" prefHeight="161.0" prefWidth="500.0" style="-fx-border-color: black;">
          <children>
             <TextField alignment="CENTER" layoutX="38.0" layoutY="27.0" prefHeight="25.0" prefWidth="168.0" promptText="Введите номер факультета" />
@@ -57,5 +52,12 @@
       </Label>
       <TextField fx:id="tfStudent_scholarship" layoutX="330.0" layoutY="383.0" />
       <TextField fx:id="tfType" layoutX="330.0" layoutY="423.0" />
+      <Label layoutX="564.0" layoutY="62.0" text="Стипендии">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="14.0" text="ID:" />
+      <Label fx:id="lNum" layoutX="35.0" layoutY="14.0" text="###" />
    </children>
 </AnchorPane>

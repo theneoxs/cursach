@@ -26,6 +26,8 @@ public class ContrForLogin {
 	@FXML
 	private Button bLogin;
 	@FXML
+	private Button bReg;
+	@FXML
 	private Label lDeny;
 	public static int level_accept = 0;
 	private Database db = new Database();
@@ -40,17 +42,59 @@ public class ContrForLogin {
 		String nextfile = "";
 		String namefile = "";
 		boolean access = false;
+		int x = 1200;
+		int y = 700;
 		FileReader lvl= new FileReader("lvl");
         Scanner scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
         lvl.close();
         
         if (level_accept.equals("0")) {
-			nextfile = "Student.fxml";
+			nextfile = "AdminPanel.fxml";
 			namefile = "Admin Panel";
 			access = true;
+			x = 700;
+			y = 700;
 		}
-        
+        else if (level_accept.equals("1")) {
+			nextfile = "StudentInfo.fxml";
+			namefile = "StudInfo";
+			access = true;
+			y = 600;
+		}
+        else if (level_accept.equals("2")) {
+			nextfile = "Student.fxml";
+			namefile = "Student";
+			access = true;
+		}
+        else if (level_accept.equals("3")) {
+			nextfile = "Faculty.fxml";
+			namefile = "Faculty";
+			access = true;
+			x = 1300;
+		}
+        else if (level_accept.equals("4")) {
+			nextfile = "Economy.fxml";
+			namefile = "Economy";
+			x = 1300;
+			y = 700;
+			access = true;
+		}
+        else if (level_accept.equals("5")) {
+			nextfile = "client.fxml";
+			namefile = "Client";
+			access = true;
+		}
+        else if (level_accept.equals("6")) {
+			nextfile = "Organization.fxml";
+			namefile = "Organization";
+			access = true;
+		}
+        else if (level_accept.equals("7")) {
+			nextfile = "Group.fxml";
+			namefile = "Teacher's field";
+			access = true;
+		}
 		if (tr && access) {
 			lDeny.setVisible(false);
 			
@@ -61,7 +105,7 @@ public class ContrForLogin {
 			
 			root = FXMLLoader.load(getClass().getResource(nextfile));
 			
-			Scene scene = new Scene(root,1200,700);
+			Scene scene = new Scene(root,x,y);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle(namefile);
@@ -72,5 +116,18 @@ public class ContrForLogin {
 			lDeny.setVisible(true);
 		}
 	}
-
+	@FXML
+	private void winReg() throws IOException {
+		Stage primaryStage = new Stage();
+		AnchorPane root = new AnchorPane();
+		
+		root = FXMLLoader.load(getClass().getResource("Autorization.fxml"));
+		
+		Scene scene = new Scene(root,500,400);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Registred");
+		primaryStage.show();
+		
+	}
 }

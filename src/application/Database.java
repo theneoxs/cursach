@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ import java.util.Scanner;
 import javafx.collections.ObservableList;
 
 public class Database {
-	
+	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	private Connection conn;
 	public Database() {
 		this.conn = null;
@@ -44,7 +45,49 @@ public class Database {
 		}
 		this.conn = null;
 	}
-	
+	public String chechAcc(String id, int ch, String Name, String Surname) throws IOException {
+		System.out.println("Do it!");
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+        String i = "";
+        ResultSet rs = null;
+		if (openConnection("1", "admin")) {
+			Statement st = null;
+			try {
+				st = conn.createStatement();
+				if (ch == 0) {
+					rs = st.executeQuery("select * from cursach.client where Name = '"+Name+"' and Surname = '"+Surname+"' and Info = '"+id+"';");
+				}
+				else {
+					rs = st.executeQuery("select * from cursach.client where Name = '"+Name+"' and Surname = '"+Surname+"' and idclient = '"+id+"';");
+				}
+				while(rs.next()) {
+					i = "Login: " + rs.getString("idclient") + ", Password: " + rs.getString("Password");
+				}
+			} 
+			catch (SQLException e) {
+				System.out.println("SQl exception" + e.getMessage());
+				e.printStackTrace();
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+			
+		}
+		return i;
+	}
 	// Получает информацию обо всех экземплярах техники
 	public List<Student> getAllStudent() throws IOException {
 		FileReader lvl= new FileReader("lvl");
@@ -85,6 +128,49 @@ public class Database {
 		}
 		return lStudent;
 	}
+	public Student getConcrStudent(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		Student lStudent = new Student();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.student where idStudent = " +id+";");
+				while (rs.next()) {
+					lStudent = new Student(rs.getInt("idStudent"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Middle_name"),
+							rs.getDate("Date_of_birth"), rs.getString("Sex"), rs.getDate("Year_of_enrollment"), rs.getString("Status"), rs.getString("Type"), rs.getInt("idGroup"));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
 	public List<Organization> getAllOrg() throws IOException {
 		FileReader lvl= new FileReader("lvl");
         Scanner scan = new Scanner(lvl);
@@ -99,6 +185,83 @@ public class Database {
 			try {
 				st = conn.createStatement();
 				rs = st.executeQuery("select * from cursach.organization");
+				while (rs.next()) {
+					lStudent.add(new Organization(rs.getInt("idOrganization"), rs.getString("Name_of_organization"), rs.getString("Name_of_head_of_organization"), rs.getString("Organization_direction")));
+				}
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+	}
+	public List<Organization> getAllConcrOrg(String info) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<Organization> lStudent = new ArrayList<Organization>();
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.organization where idOrganization = (select Organization_idOrganization from cursach.organization_has_student where Student_idStudent = '" + info +"');");
+				while (rs.next()) {
+					lStudent.add(new Organization(rs.getInt("idOrganization"), rs.getString("Name_of_organization"), rs.getString("Name_of_head_of_organization"), rs.getString("Organization_direction")));
+					
+				}
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+	}
+	public List<Organization> getAllExOrg(String info) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<Organization> lStudent = new ArrayList<Organization>();
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.organization where idOrganization = (select idOrganization from cursach.organization_has_student where Student_idStudent != '" + info +"');");
 				while (rs.next()) {
 					lStudent.add(new Organization(rs.getInt("idOrganization"), rs.getString("Name_of_organization"), rs.getString("Name_of_head_of_organization"), rs.getString("Organization_direction")));
 				}
@@ -328,7 +491,7 @@ public class Database {
 				st = conn.createStatement();
 				rs = st.executeQuery("select * from cursach.client");
 				while (rs.next()) {
-					lStudent.add(new client(rs.getInt("idclient"), rs.getString("Name"), rs.getString("Surname"),rs.getDate("Date_of_autorization"),rs.getInt("Access_level"), rs.getString("Info")));
+					lStudent.add(new client(rs.getInt("idclient"), rs.getString("Name"), rs.getString("Surname"),rs.getDate("Date_of_autorization"),rs.getInt("Access_level"), rs.getString("Info"), rs.getString("Password")));
 				}
 			} 
 			catch (SQLException e) {
@@ -351,7 +514,7 @@ public class Database {
 		}
 		return lStudent;
 	}
-	public boolean newClient(String Name, String Surname, Date Date_of_autorization, Integer Access_level, String Info) throws IOException {
+	public boolean newClient(String Name, String Surname, Date Date_of_autorization, Integer Access_level, String Info, String Password) throws IOException {
 		System.out.println("Do it!");
 		FileReader lvl= new FileReader("lvl");
         Scanner scan = new Scanner(lvl);
@@ -364,8 +527,8 @@ public class Database {
 			Statement st = null;
 			try {
 				st = conn.createStatement();
-				res = st.executeUpdate("insert into cursach.client (Name, Surname, Date_of_autorization, Access_level, Info) values('"
-						+ Name + "','" + Surname +"','" + Date_of_autorization +"','" + Access_level +"','" + Info +"');");
+				res = st.executeUpdate("insert into cursach.client (Name, Surname, Date_of_autorization, Access_level, Info, Password) values('"
+						+ Name + "','" + Surname +"','" + Date_of_autorization +"','" + Access_level +"','" + Info +"','" + Password +"');");
 			} 
 			catch (SQLException e) {
 				res = 0;
@@ -420,7 +583,7 @@ public class Database {
 		}
 		return (res == 1);
 	}
-	public boolean updClient(Integer idclient, String Name, String Surname, Date Date_of_autorization, Integer Access_level, String Info) throws IOException {
+	public boolean updClient(Integer idclient, String Name, String Surname, Date Date_of_autorization, Integer Access_level, String Info, String Password) throws IOException {
 		FileReader lvl= new FileReader("lvl");
         Scanner scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
@@ -433,7 +596,7 @@ public class Database {
 			try {
 				st = conn.createStatement();
 				res = st.executeUpdate("update cursach.client set Name = '"
-				+Name+"', Surname = '"+Surname+"', Date_of_autorization = '"+Date_of_autorization+"', Access_level = '"+Access_level+"', Info = '"+Info+"' where idclient = '"+idclient+"';");
+				+Name+"', Surname = '"+Surname+"', Date_of_autorization = '"+Date_of_autorization+"', Access_level = '"+Access_level+"', Info = '"+Info+"', Password = '"+Password+"' where idclient = '"+idclient+"';");
 			} 
 			catch (SQLException e) {
 				res = 0;
@@ -486,6 +649,40 @@ public class Database {
 				st = null;
 			}
 			
+		}
+		return (res == 1);
+	}
+	public boolean addInvite(Integer idStudent, Integer idOrganization, String Message, Date Date) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		int res = 0;
+		if (openConnection(login, password)) {
+			Statement st = null;
+			try {
+				st = conn.createStatement();
+				res = st.executeUpdate("insert into cursach.invite (idStudent, idOrganization, Message, date) values('"
+						+ idStudent + "','" + idOrganization +"','" + Message +"','" + Date +"');");
+			} 
+			catch (SQLException e) {
+				res = 0;
+				System.out.println("SQl exception" + e.getMessage());
+				e.printStackTrace();
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
 		}
 		return (res == 1);
 	}
@@ -845,10 +1042,15 @@ public class Database {
 				st = conn.createStatement();
 				res = st.executeUpdate("insert into cursach.student (Name, Surname, Middle_name, Date_of_birth, Sex, Year_of_enrollment, Status, Type, idGroup) values('"
 						+ Name + "','" + Surname + "','" + Middle_name + "','" + Date_of_birth + "','" + Sex + "','" + Year_of_enrollment + "','" + Status + "','" + Type + "','" + idGroup + "');");
+				
+				ResultSet id1 = st.executeQuery("SELECT MAX(idStudent) AS idStudent FROM cursach.student");
+				id1.next();
+				int id = id1.getInt("idStudent");
+				res = st.executeUpdate("insert into cursach.client (Name, Surname, Date_of_autorization, Access_level, Info, Password) values('" + Name +"','"+Surname+"','"+Date_of_birth+"','1', '"+id+"','');");
 			} 
 			catch (SQLException e) {
 				res = 0;
-				System.out.println("SQl exception" + e.getMessage());
+				System.out.println("SQl exception: " + e.getMessage());
 				e.printStackTrace();
 			} 
 			finally {
@@ -915,6 +1117,7 @@ public class Database {
 			try {
 				st = conn.createStatement();
 				res = st.executeUpdate("delete from cursach.student where idStudent = '" + idStudent + "';");
+				res = st.executeUpdate("delete from cursach.client where Info = '" + idStudent + "';");
 			} 
 			catch (SQLException e) {
 				res = 0;
@@ -1338,13 +1541,18 @@ public class Database {
 		ResultSet rs = null;
 		String ls = "";
 		String lvl = "";
-		if (openConnection(login, password)) {
+		String text = "";
+		if (openConnection("root", "admin")) {
 			try {
 				st = conn.createStatement();
 				rs = st.executeQuery("select * from cursach.client where idclient = '"+ login + "';");
 				while (rs.next()) {
-					ls += password;
+					ls += rs.getString("Password");
+					System.out.println(ls);
 					lvl += rs.getString("Access_level");
+					text += rs.getString("Info");
+					
+					
 				}
 			} 
 			catch (SQLException e) {
@@ -1356,6 +1564,7 @@ public class Database {
 			finally {
 				try {
 					if (st != null)
+						st.executeUpdate("update cursach.client set Date_of_autorization = '"+df.format(new java.util.Date())+"' where idclient = '"+login+"';");
 						st.close();
 					closeConnection();
 				} 
@@ -1368,8 +1577,10 @@ public class Database {
 		if (ls.equals(password)) {
 			FileWriter file = new FileWriter("lvl");
 			file.write(lvl+"\n");
+			file.write("root\n");
+			file.write("admin\n");
+			file.write(text+"\n");
 			file.write(login+"\n");
-			file.write(ls+"\n");
 			file.close();
 			return true;
 		}

@@ -8,15 +8,22 @@ import java.util.Scanner;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class ContfForOrg {
+	@FXML private Label lNum;
+	
 	@FXML private TableView<Organization> tvOrganization;
 	@FXML private TableColumn<Organization, Integer> tcidOrganization;
 	@FXML private TableColumn<Organization, String> tcName_of_organization;
@@ -31,14 +38,45 @@ public class ContfForOrg {
 	@FXML private Button bNew;
 	@FXML private Button bEdit;
 	@FXML private Button bDelete;
-	
+	@FXML private Button bInv;
 	private Database db = new Database();
 	@FXML
 	private void initialize() throws IOException {
 		FileReader lvl= new FileReader("lvl");
         Scanner scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        String info = scan.nextLine();
+        String id = scan.nextLine();
         lvl.close();
+        String text = id + ",  Access Level: ";
+        if (level_accept.equals("0")) {
+        	text += "Main Admin";
+        }
+        if (level_accept.equals("1")) {
+        	text += "Student";
+        }
+        if (level_accept.equals("2")) {
+        	text += "Student Manager";
+        }
+        if (level_accept.equals("3")) {
+        	text += "Faculty Manager";
+        }
+        if (level_accept.equals("4")) {
+        	text += "Finance Manager";
+        }
+        if (level_accept.equals("5")) {
+        	text += "Administrator";
+        }
+        if (level_accept.equals("6")) {
+        	text += "Organisation Manager";
+        }
+        if (level_accept.equals("7")) {
+        	text += "Teacher";
+        }
+        
+        lNum.setText(text);
         tcidOrganization.setCellValueFactory(new PropertyValueFactory<Organization, Integer>("idOrganization")); //1 столбик
         tcName_of_organization.setCellValueFactory(new PropertyValueFactory<Organization, String>("Name_of_organization")); //2 столбик
         tcName_of_head_of_organization.setCellValueFactory(new PropertyValueFactory<Organization, String>("Name_of_head_of_organization")); //3 столбик
@@ -148,7 +186,20 @@ public class ContfForOrg {
 			return false;
 		}
 	}
-	
+	@FXML
+	private void winInvite() throws IOException {
+		Stage primaryStage = new Stage();
+		AnchorPane root = new AnchorPane();
+		
+		root = FXMLLoader.load(getClass().getResource("Invite.fxml"));
+		
+		Scene scene = new Scene(root,1250,700);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Invite");
+		primaryStage.show();
+		
+	}
 	
 	
 }

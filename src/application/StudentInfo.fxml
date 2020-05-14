@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -10,83 +11,97 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForClient">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" scaleShape="false" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForInfo">
    <children>
-      <Pane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #F2E0CA;">
+      <Pane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #F2E0CA;">
          <effect>
             <ColorAdjust />
          </effect>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="25.0" prefHeight="48.0" prefWidth="284.0" text="Информация о студенте" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="458.0" layoutY="48.0" prefHeight="48.0" prefWidth="284.0" text="Информация о студенте" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="157.0" text="ID студента">
+            <Label layoutX="65.0" layoutY="157.0" text="ID студента">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="200.0" text="Имя студента">
+            <Label layoutX="65.0" layoutY="200.0" text="Имя студента">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="239.0" text="Фамилия студента">
+            <Label layoutX="65.0" layoutY="239.0" text="Фамилия студента">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="381.0" layoutY="239.0" prefHeight="25.0" prefWidth="121.0" />
-            <TextField layoutX="381.0" layoutY="200.0" prefHeight="25.0" prefWidth="121.0" />
-            <TextField layoutX="382.0" layoutY="157.0" prefHeight="25.0" prefWidth="121.0" />
-            <TextField layoutX="381.0" layoutY="275.0" prefHeight="25.0" prefWidth="121.0" />
-            <TextField layoutX="381.0" layoutY="347.0" prefHeight="25.0" prefWidth="121.0" />
-            <Label layoutX="100.0" layoutY="275.0" prefHeight="25.0" prefWidth="185.0" text="Дата рождения студента">
+            <TextField fx:id="tfIdStudent" editable="false" layoutX="347.0" layoutY="157.0" prefHeight="25.0" prefWidth="121.0" />
+            <TextField fx:id="tfName" editable="false" layoutX="346.0" layoutY="200.0" prefHeight="25.0" prefWidth="121.0" />
+            <TextField fx:id="tfSurname" editable="false" layoutX="346.0" layoutY="239.0" prefHeight="25.0" prefWidth="121.0" />
+            <TextField fx:id="tfDate_of_birth" editable="false" layoutX="346.0" layoutY="309.0" prefHeight="25.0" prefWidth="121.0" />
+            <ComboBox fx:id="cbSex" disable="true" layoutX="347.0" layoutY="343.0" prefHeight="25.0" prefWidth="121.0" />
+            <TextField fx:id="tfYear_of_enrollment" editable="false" layoutX="346.0" layoutY="381.0" prefHeight="25.0" prefWidth="121.0" />
+            <ComboBox fx:id="cbStatus" disable="true" layoutX="347.0" layoutY="418.0" prefHeight="25.0" prefWidth="121.0" />
+            <ComboBox fx:id="cbMRID" disable="true" layoutX="347.0" layoutY="456.0" prefHeight="25.0" prefWidth="121.0" />
+            <ComboBox fx:id="cbSID" disable="true" layoutX="347.0" layoutY="489.0" prefHeight="25.0" prefWidth="121.0" />
+            <Label layoutX="65.0" layoutY="309.0" prefHeight="25.0" prefWidth="185.0" text="Дата рождения студента">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="309.0" prefHeight="25.0" prefWidth="115.0" text="Пол студента">
+            <Label layoutX="65.0" layoutY="343.0" prefHeight="25.0" prefWidth="115.0" text="Пол студента">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="347.0" prefHeight="25.0" prefWidth="133.0" text="Год поступления">
+            <Label layoutX="65.0" layoutY="381.0" prefHeight="25.0" prefWidth="133.0" text="Год поступления">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="384.0" prefHeight="25.0" prefWidth="66.0" text="Статус">
+            <Label layoutX="65.0" layoutY="418.0" prefHeight="25.0" prefWidth="66.0" text="Статус">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="455.0" prefHeight="25.0" prefWidth="66.0" text="Группа">
+            <Label layoutX="65.0" layoutY="489.0" prefHeight="25.0" prefWidth="66.0" text="Группа">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="100.0" layoutY="422.0" prefHeight="25.0" prefWidth="185.0" text="Стипендия">
+            <Label layoutX="65.0" layoutY="456.0" prefHeight="25.0" prefWidth="185.0" text="Стипендия">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="381.0" layoutY="309.0" prefHeight="25.0" prefWidth="121.0" />
-            <TextField layoutX="382.0" layoutY="422.0" prefHeight="25.0" prefWidth="121.0" />
-            <TextField layoutX="381.0" layoutY="384.0" prefHeight="25.0" prefWidth="121.0" />
-            <TextField layoutX="382.0" layoutY="455.0" prefHeight="25.0" prefWidth="121.0" />
-            <TableView fx:id="tvInvite1" layoutX="570.0" layoutY="157.0" prefHeight="357.0" prefWidth="266.0">
+            <TableView fx:id="tvOrganization" layoutX="570.0" layoutY="157.0" prefHeight="357.0" prefWidth="558.0">
                <columns>
-                  <TableColumn prefWidth="265.0" text="Name_of_organization" />
+                  <TableColumn fx:id="tcidOrganization" prefWidth="75.0" text="idOrganization" />
+                  <TableColumn fx:id="tcName_of_organization" prefWidth="116.0" text="Name_of_organization" />
+                  <TableColumn fx:id="tcName_of_head_of_organization" prefWidth="255.0" text="Name_of_head_of_organization" />
+                  <TableColumn fx:id="tcOrganization_direction" prefWidth="75.0" text="Organization_direction" />
                </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
-            <Label layoutX="526.0" layoutY="132.0" text="Список организаций, в которых состоит студент">
+            <Label layoutX="672.0" layoutY="132.0" text="Список организаций, в которых состоит студент">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="bDenied1" layoutX="226.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleDen" prefHeight="36.0" prefWidth="178.0" style="-fx-background-color: #25213E;" text="Заявки на доп. организации" textFill="WHITE" />
+            <Button fx:id="bZayavka" layoutX="180.0" layoutY="528.0" mnemonicParsing="false" onAction="#winInv" prefHeight="36.0" prefWidth="178.0" style="-fx-background-color: #25213E;" text="Заявки на доп. организации" textFill="WHITE" />
+            <TextField fx:id="tfMiddle_name" layoutX="346.0" layoutY="275.0" prefHeight="25.0" prefWidth="121.0" />
+            <Label layoutX="65.0" layoutY="275.0" text="Отчество студента">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="15.0" text="ID:" />
+            <Label fx:id="lNum" layoutX="39.0" layoutY="15.0" text="#" />
          </children>
       </Pane>
    </children>

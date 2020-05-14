@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -15,6 +16,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ContrForOrgS {
+	@FXML private Label lNum;
+	
 	@FXML private TableView<OrgStudent> tvOrgStudent;
 	@FXML private TableColumn<OrgStudent, Integer> tcOrganization_idOrganization;
 	@FXML private TableColumn<OrgStudent, Integer> tcStudent_idStudent;
@@ -34,7 +37,38 @@ public class ContrForOrgS {
 		FileReader lvl= new FileReader("lvl");
         Scanner scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        String info = scan.nextLine();
+        String id = scan.nextLine();
         lvl.close();
+        String text = id + ",  Access Level: ";
+        if (level_accept.equals("0")) {
+        	text += "Main Admin";
+        }
+        if (level_accept.equals("1")) {
+        	text += "Student";
+        }
+        if (level_accept.equals("2")) {
+        	text += "Student Manager";
+        }
+        if (level_accept.equals("3")) {
+        	text += "Faculty Manager";
+        }
+        if (level_accept.equals("4")) {
+        	text += "Finance Manager";
+        }
+        if (level_accept.equals("5")) {
+        	text += "Administrator";
+        }
+        if (level_accept.equals("6")) {
+        	text += "Organisation Manager";
+        }
+        if (level_accept.equals("7")) {
+        	text += "Teacher";
+        }
+        
+        lNum.setText(text);
         tcOrganization_idOrganization.setCellValueFactory(new PropertyValueFactory<OrgStudent, Integer>("Organization_idOrganization")); //1 столбик
         tcStudent_idStudent.setCellValueFactory(new PropertyValueFactory<OrgStudent, Integer>("Student_idStudent")); //2 столбик
         tvOrgStudent.setItems(FXCollections.observableArrayList(db.getAllOrgS())); //инициализация динамического массива из элементов Tech и передача соответствующей информации в столбики

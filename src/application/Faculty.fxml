@@ -11,20 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1250.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForFaculty">
    <children>
-      <Pane layoutX="1039.0" layoutY="348.0" prefHeight="234.0" prefWidth="193.0" style="-fx-border-color: black;">
-         <children>
-            <Button layoutX="36.0" layoutY="48.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Студенты" textFill="WHITE" />
-            <Button layoutX="36.0" layoutY="92.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Группы" textFill="WHITE" />
-            <Button disable="true" layoutX="36.0" layoutY="138.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Факультеты" textFill="WHITE" />
-            <Button layoutX="36.0" layoutY="184.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Организации" textFill="WHITE" />
-            <Label layoutX="36.0" layoutY="4.0" prefHeight="36.0" prefWidth="121.0" text="Переход по окнам">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane layoutX="1036.0" layoutY="166.0" prefHeight="144.0" prefWidth="200.0" style="-fx-border-color: black;">
+      <Pane layoutX="412.0" layoutY="166.0" prefHeight="144.0" prefWidth="200.0" style="-fx-border-color: black;">
          <children>
             <Button fx:id="bNew" layoutX="33.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleNew" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Добавление записи" textFill="WHITE" />
             <Button fx:id="bEdit" layoutX="33.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleUpd" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Обновление записи" textFill="WHITE" />
@@ -44,12 +31,12 @@
             <TextField layoutX="231.0" layoutY="98.0" prefHeight="25.0" prefWidth="53.0" promptText="Имя" />
          </children>
       </Pane>
-      <Label layoutX="484.0" layoutY="21.0" prefHeight="72.0" prefWidth="233.0" text="Данные факультетов" textAlignment="CENTER">
+      <Label layoutX="541.0" layoutY="52.0" prefHeight="72.0" prefWidth="253.0" text="Данные факультетов" textAlignment="CENTER">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tvFaculty" editable="true" layoutX="441.0" layoutY="167.0" prefHeight="416.0" prefWidth="552.0">
+      <TableView fx:id="tvFaculty" editable="true" layoutX="667.0" layoutY="165.0" prefHeight="416.0" prefWidth="552.0">
          <columns>
             <TableColumn fx:id="tcidFaculty" prefWidth="59.0" text="idFaculty" />
             <TableColumn fx:id="tcName_of_faculty" prefWidth="51.0" text="Name_of_faculty" />
@@ -62,41 +49,43 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label layoutX="14.0" layoutY="348.0" text="ID факультета">
+      <Label layoutX="130.0" layoutY="348.0" text="ID факультета">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="509.0" text="Суммарное число членов факультета">
+      <Label layoutX="130.0" layoutY="509.0" text="Суммарное число членов факультета">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="386.0" text="Название факультета">
+      <Label layoutX="130.0" layoutY="386.0" text="Название факультета">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="427.0" text="Дата основания факультета">
+      <Label layoutX="130.0" layoutY="427.0" text="Дата основания факультета">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="465.0" text="Имя директора факультета">
+      <Label layoutX="130.0" layoutY="465.0" text="Имя директора факультета">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="550.0" text="Актуальное число членов факультета">
+      <Label layoutX="130.0" layoutY="550.0" text="Актуальное число членов факультета">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="tfMembers_now" editable="false" layoutX="291.0" layoutY="550.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfNumber_of_faculty_members" layoutX="292.0" layoutY="509.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfName_of_head_of_faculty" layoutX="292.0" layoutY="465.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfDate_of_establishment_faculty" layoutX="292.0" layoutY="427.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfName_of_faculty" layoutX="292.0" layoutY="386.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfidFaculty" editable="false" layoutX="292.0" layoutY="348.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfMembers_now" editable="false" layoutX="484.0" layoutY="550.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfNumber_of_faculty_members" layoutX="485.0" layoutY="509.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfName_of_head_of_faculty" layoutX="485.0" layoutY="465.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfDate_of_establishment_faculty" layoutX="485.0" layoutY="427.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfName_of_faculty" layoutX="485.0" layoutY="386.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidFaculty" editable="false" layoutX="485.0" layoutY="348.0" prefHeight="25.0" prefWidth="121.0" />
+      <Label layoutX="14.0" layoutY="14.0" text="ID:" />
+      <Label fx:id="lNum" layoutX="37.0" layoutY="14.0" text="#" />
    </children>
 </AnchorPane>
