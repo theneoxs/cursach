@@ -29,6 +29,7 @@
             <Button layoutX="4.0" layoutY="98.0" mnemonicParsing="false" onAction="#SortByTot" prefHeight="25.0" prefWidth="224.0" text="По суммарному количеству студентов" />
             <TextField fx:id="tfSortStatus" layoutX="231.0" layoutY="50.0" prefHeight="25.0" prefWidth="53.0" promptText="Число" />
             <TextField fx:id="tfSortNum" layoutX="231.0" layoutY="98.0" prefHeight="25.0" prefWidth="53.0" promptText="Число" />
+            <Button layoutX="204.0" layoutY="20.0" mnemonicParsing="false" onAction="#pass" text="Сброс!" />
          </children>
       </Pane>
       <Label layoutX="541.0" layoutY="52.0" prefHeight="72.0" prefWidth="253.0" text="Данные факультетов" textAlignment="CENTER">

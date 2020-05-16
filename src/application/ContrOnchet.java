@@ -158,7 +158,7 @@ public class ContrOnchet extends JFrame{
 		File dir = new File(path, filename);
 		FileWriter file = new FileWriter(path + "/"+filename);
 		file.write("ОТЧЕТ ПО ГРУППЕ "+tfNumGroup.getText()+"\n--------------\n");
-		file.write("Называние группы: "+group.getNumber_of_group()+"\n");
+		file.write("Название группы: "+group.getNumber_of_group()+"\n");
 		file.write("Староста группы: "+group.getName_of_head_of_group()+"\n\n");
 		file.write("ID факультета: "+group.getFaculty_idFaculty()+"\n");
 		file.write("Название факультета: "+faculty.getName_of_faculty()+"\n");

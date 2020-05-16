@@ -246,4 +246,5 @@ public class ContrForFaculty {
 	private void pass() throws IOException {
 		tvFaculty.setItems(FXCollections.observableArrayList(db.getAllFaculty()));
 	}
+	
 }

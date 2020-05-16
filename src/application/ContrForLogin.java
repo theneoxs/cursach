@@ -130,4 +130,18 @@ public class ContrForLogin {
 		primaryStage.show();
 		
 	}
+	@FXML
+	private void winCalc() throws IOException {
+		Stage primaryStage = new Stage();
+		AnchorPane root = new AnchorPane();
+		
+		root = FXMLLoader.load(getClass().getResource("kalculator.fxml"));
+		
+		Scene scene = new Scene(root,800,600);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Calculator");
+		primaryStage.show();
+		
+	}
 }

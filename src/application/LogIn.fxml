@@ -52,21 +52,26 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="172.0" fitWidth="190.0" layoutX="36.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView blendMode="MULTIPLY" fitHeight="172.0" fitWidth="190.0" layoutX="36.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../logo.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="TOP_CENTER" layoutX="52.0" layoutY="250.0" prefHeight="25.0" prefWidth="140.0" text="Система учета ">
+                  <Label alignment="TOP_CENTER" layoutX="52.0" layoutY="248.0" prefHeight="25.0" prefWidth="140.0" text="Система учета ">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <Label layoutX="52.0" layoutY="278.0" prefHeight="18.0" prefWidth="140.0" text="данных студентов">
+                  <Label layoutX="52.0" layoutY="276.0" prefHeight="18.0" prefWidth="140.0" text="данных студентов">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
+                  <Button fx:id="bReg1" layoutX="27.0" layoutY="311.0" mnemonicParsing="false" onAction="#winCalc" prefHeight="33.0" prefWidth="190.0" style="-fx-background-color: #25213E;" text="Калькулятор стипендий" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </children>

@@ -123,7 +123,6 @@ public class ContrForGroup {
 			tfNumber_of_group.setText("");
 			tfName_of_head_of_group.setText("");
 			tfNumber_of_group_members.setText("");
-			tfFaculty_idFaculty.setText("");
 			cbSID.setValue(cblSID.get(0));
 			
 		}

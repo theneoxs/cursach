@@ -603,7 +603,7 @@ public class Database {
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
-				rs = st.executeQuery("select * from cursach.organization where idOrganization = (select Organization_idOrganization from cursach.organization_has_student where Student_idStudent = '" + info +"');");
+				rs = st.executeQuery("select * from cursach.organization join cursach.organization_has_student where Student_idStudent = '"+info+"' and Organization_idOrganization = idOrganization;");
 				while (rs.next()) {
 					lStudent.add(new Organization(rs.getInt("idOrganization"), rs.getString("Name_of_organization"), rs.getString("Name_of_head_of_organization"), rs.getString("Organization_direction")));
 					
@@ -642,7 +642,7 @@ public class Database {
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
-				rs = st.executeQuery("select * from cursach.organization where idOrganization = (select idOrganization from cursach.organization_has_student where Student_idStudent != '" + info +"');");
+				rs = st.executeQuery("select * from cursach.organization join cursach.organization_has_student where Student_idStudent != '"+info+"' and Organization_idOrganization = organization.idOrganization;");
 				while (rs.next()) {
 					lStudent.add(new Organization(rs.getInt("idOrganization"), rs.getString("Name_of_organization"), rs.getString("Name_of_head_of_organization"), rs.getString("Organization_direction")));
 				}
@@ -1566,7 +1566,7 @@ public class Database {
 			Statement st = null;
 			try {
 				st = conn.createStatement();
-				res = st.executeUpdate("delete from cursach.opranization where idOrganization = '" + idOrganization + "';");
+				res = st.executeUpdate("delete from cursach.organization where idOrganization = '" + idOrganization + "';");
 			} 
 			catch (SQLException e) {
 				res = 0;
