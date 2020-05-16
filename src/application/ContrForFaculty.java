@@ -40,6 +40,8 @@ public class ContrForFaculty {
 	@FXML private Button bEdit;
 	@FXML private Button bDelete;
 	
+	@FXML private TextField tfSortStatus;
+	@FXML private TextField tfSortNum;
 	private Database db = new Database();
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 	
@@ -231,5 +233,17 @@ public class ContrForFaculty {
 			alert.showAndWait();
 			return false;
 		}
+	}
+	@FXML
+	private void SortByMem() throws IOException {
+		tvFaculty.setItems(FXCollections.observableArrayList(db.nowSort(tfSortStatus.getText())));	
+	}
+	@FXML
+	private void SortByTot() throws IOException {
+		tvFaculty.setItems(FXCollections.observableArrayList(db.totSort(tfSortNum.getText())));	
+	}
+	@FXML
+	private void pass() throws IOException {
+		tvFaculty.setItems(FXCollections.observableArrayList(db.getAllFaculty()));
 	}
 }

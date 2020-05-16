@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="189.0" prefHeight="89.0" prefWidth="222.0" text="Статистика системы">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="90.0" text="Номер группы">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="456.0" layoutY="120.0" prefHeight="25.0" prefWidth="108.0" />
+      <TextField layoutX="456.0" layoutY="270.0" prefHeight="25.0" prefWidth="108.0" />
+      <TextField layoutX="456.0" layoutY="330.0" prefHeight="25.0" prefWidth="108.0" />
+      <Label layoutX="70.0" layoutY="240.0" text="Номер факультета">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="270.0" prefHeight="25.0" prefWidth="257.0" text="Средняя стипендия по факультету">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="456.0" layoutY="90.0" prefHeight="25.0" prefWidth="108.0" />
+      <Label layoutX="70.0" layoutY="120.0" prefHeight="25.0" prefWidth="339.0" text="Средняя стипендия по группе">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="150.0" prefHeight="25.0" prefWidth="230.0" text="Кол-во студентов в группе">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="300.0" prefHeight="25.0" prefWidth="308.0" text="Кол-во студентов на факультете">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="180.0" prefHeight="25.0" prefWidth="230.0" text="Соотношение полов в группе">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="330.0" prefHeight="25.0" prefWidth="299.0" text="Соотношение полов на факультете">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="456.0" layoutY="300.0" prefHeight="25.0" prefWidth="108.0" />
+      <TextField layoutX="456.0" layoutY="240.0" prefHeight="25.0" prefWidth="108.0" />
+      <TextField layoutX="456.0" layoutY="180.0" prefHeight="25.0" prefWidth="108.0" />
+      <TextField layoutX="456.0" layoutY="150.0" prefHeight="25.0" prefWidth="108.0" />
+   </children>
+</AnchorPane>

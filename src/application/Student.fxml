@@ -39,10 +39,11 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="7.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Фильтрация по полу" />
-            <Button layoutX="7.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Фильтрация по имени" />
-            <TextField layoutX="153.0" layoutY="50.0" prefHeight="25.0" prefWidth="67.0" promptText="Пол" />
-            <TextField layoutX="153.0" layoutY="94.0" prefHeight="25.0" prefWidth="67.0" promptText="Имя" />
+            <Button fx:id="bSortStatus" layoutX="7.0" layoutY="50.0" mnemonicParsing="false" onAction="#SortByStatus" prefHeight="25.0" prefWidth="134.0" text="По статусу" />
+            <Button fx:id="bSortNum" layoutX="7.0" layoutY="94.0" mnemonicParsing="false" onAction="#SortByNum" prefHeight="25.0" prefWidth="134.0" text="По номеру группы" />
+            <TextField fx:id="tfSortStatus" layoutX="153.0" layoutY="50.0" prefHeight="25.0" prefWidth="67.0" promptText="Статус" />
+            <TextField fx:id="tfSortNum" layoutX="153.0" layoutY="94.0" prefHeight="25.0" prefWidth="67.0" promptText="Группа" />
+            <Button layoutX="154.0" layoutY="15.0" mnemonicParsing="false" onAction="#pass" text="Сброс!" />
          </children>
       </Pane>
       <Label layoutX="489.0" layoutY="42.0" prefHeight="72.0" prefWidth="222.0" text="Данные студентов" textAlignment="CENTER">
@@ -50,7 +51,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tvStudent" layoutX="500.0" layoutY="158.0" prefHeight="495.0" prefWidth="461.0">
+      <TableView fx:id="tvStudent" layoutX="500.0" layoutY="158.0" prefHeight="495.0" prefWidth="461.0" tableMenuButtonVisible="true">
         <columns>
           <TableColumn fx:id="tcIdStudent" prefWidth="75.0" text="IdStudent" />
           <TableColumn fx:id="tcName" prefWidth="75.0" text="Name" />
@@ -127,8 +128,8 @@
       <ComboBox fx:id="cbSID" layoutX="233.0" layoutY="535.0" prefHeight="25.0" prefWidth="200.0" />
       <ComboBox fx:id="cbSex" layoutX="233.0" layoutY="375.0" prefHeight="25.0" prefWidth="200.0" />
       <ComboBox fx:id="cbStatus" layoutX="233.0" layoutY="455.0" prefHeight="25.0" prefWidth="200.0" />
-      <Button fx:id="bClient" layoutX="1048.0" layoutY="60.0" mnemonicParsing="false" onAction="#winClient" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Клиенты" textFill="WHITE" visible="false" />
-      <Button fx:id="bInvite" layoutX="901.0" layoutY="60.0" mnemonicParsing="false" onAction="#winInvite" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Запросы" textFill="WHITE" visible="false" />
+      <Button fx:id="bClient" disable="true" layoutX="1048.0" layoutY="60.0" mnemonicParsing="false" onAction="#winClient" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Клиенты" textFill="WHITE" visible="false" />
+      <Button fx:id="bInvite" disable="true" layoutX="901.0" layoutY="60.0" mnemonicParsing="false" onAction="#winInvite" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Запросы" textFill="WHITE" visible="false" />
       <Label layoutX="14.0" layoutY="14.0" text="ID:" />
       <Label fx:id="lNum" layoutX="37.0" layoutY="14.0" text="#" />
    </children>

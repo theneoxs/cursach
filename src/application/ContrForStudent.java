@@ -68,6 +68,11 @@ public class ContrForStudent {
 	@FXML private Button bOrgS;
 	@FXML private Button bClient;
 	@FXML private Button bInvite;
+	
+	@FXML private TextField tfSortStatus;
+	@FXML private TextField tfSortNum;
+	@FXML private Button bSortStatus;
+	@FXML private Button bSortNum;
 	private Database db = new Database();
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
 	
@@ -296,7 +301,18 @@ public class ContrForStudent {
 			return false;
 		}
 	}
-	
+	@FXML
+	private void SortByStatus() throws IOException {
+		tvStudent.setItems(FXCollections.observableArrayList(db.statusSort(tfSortStatus.getText())));	
+	}
+	@FXML
+	private void SortByNum() throws IOException {
+		tvStudent.setItems(FXCollections.observableArrayList(db.groupSort(tfSortNum.getText())));	
+	}
+	@FXML
+	private void pass() throws IOException {
+		tvStudent.setItems(FXCollections.observableArrayList(db.getAllStudent()));
+	}
 	@FXML
 	private void winOrg() throws IOException {
 		Stage primaryStage = new Stage();

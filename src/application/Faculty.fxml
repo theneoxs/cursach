@@ -20,15 +20,15 @@
       </Pane>
       <Pane layoutX="65.0" layoutY="166.0" prefHeight="144.0" prefWidth="297.0" style="-fx-border-color: black;">
          <children>
-            <Label alignment="CENTER" layoutX="56.0" layoutY="14.0" prefHeight="36.0" prefWidth="121.0" text="Фильтры" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="88.0" layoutY="14.0" prefHeight="36.0" prefWidth="121.0" text="Фильтры" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button layoutX="4.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="224.0" text="Фильтрация по количеству студентов" />
-            <Button layoutX="4.0" layoutY="98.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="224.0" text="Фильтрация по имени старосты" />
-            <TextField layoutX="231.0" layoutY="50.0" prefHeight="25.0" prefWidth="53.0" promptText="Число" />
-            <TextField layoutX="231.0" layoutY="98.0" prefHeight="25.0" prefWidth="53.0" promptText="Имя" />
+            <Button layoutX="4.0" layoutY="50.0" mnemonicParsing="false" onAction="#SortByMem" prefHeight="25.0" prefWidth="224.0" text="По актуальному количеству студентов" />
+            <Button layoutX="4.0" layoutY="98.0" mnemonicParsing="false" onAction="#SortByTot" prefHeight="25.0" prefWidth="224.0" text="По суммарному количеству студентов" />
+            <TextField fx:id="tfSortStatus" layoutX="231.0" layoutY="50.0" prefHeight="25.0" prefWidth="53.0" promptText="Число" />
+            <TextField fx:id="tfSortNum" layoutX="231.0" layoutY="98.0" prefHeight="25.0" prefWidth="53.0" promptText="Число" />
          </children>
       </Pane>
       <Label layoutX="541.0" layoutY="52.0" prefHeight="72.0" prefWidth="253.0" text="Данные факультетов" textAlignment="CENTER">
@@ -38,10 +38,10 @@
       </Label>
       <TableView fx:id="tvFaculty" editable="true" layoutX="667.0" layoutY="165.0" prefHeight="416.0" prefWidth="552.0">
          <columns>
-            <TableColumn fx:id="tcidFaculty" prefWidth="59.0" text="idFaculty" />
-            <TableColumn fx:id="tcName_of_faculty" prefWidth="51.0" text="Name_of_faculty" />
-            <TableColumn fx:id="tcDate_of_establishment_faculty" prefWidth="45.0" text="Date_of_establishment_faculty" />
-            <TableColumn fx:id="tcName_of_head_of_faculty" prefWidth="162.0" text="Name_of_head_of_faculty" />
+            <TableColumn fx:id="tcidFaculty" prefWidth="65.0" text="idFaculty" />
+            <TableColumn fx:id="tcName_of_faculty" prefWidth="45.0" text="Name_of_faculty" />
+            <TableColumn fx:id="tcDate_of_establishment_faculty" prefWidth="65.0" text="Date_of_establishment_faculty" />
+            <TableColumn fx:id="tcName_of_head_of_faculty" prefWidth="142.0" text="Name_of_head_of_faculty" />
             <TableColumn fx:id="tcNumber_of_faculty_members" prefWidth="126.0" text="Number_of_faculty_members" />
             <TableColumn fx:id="tcMembers_now" prefWidth="106.0" text="Members_now" />
          </columns>

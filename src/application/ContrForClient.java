@@ -8,9 +8,11 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -40,6 +42,9 @@ public class ContrForClient {
 	@FXML private Button bNew;
 	@FXML private Button bEdit;
 	@FXML private Button bDelete;
+	
+	@FXML private ObservableList<String> cblStatus;
+	@FXML private ComboBox<String> cbStatus = new ComboBox<String>();
 	
 	private Database db = new Database();
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
@@ -83,6 +88,9 @@ public class ContrForClient {
         
         lNum.setText(text);
         
+        cblStatus = FXCollections.observableArrayList("0 Op", "1 Student", "2 Student Manager","3 Faculty Manager","4 Finance", "5 Admin", "6 Org Manager", "7 Teacher");
+		cbStatus.setItems(cblStatus);
+		
         tcidclient.setCellValueFactory(new PropertyValueFactory<client, Integer>("idclient")); //1 столбик
         tcName.setCellValueFactory(new PropertyValueFactory<client, String>("Name")); //2 столбик
         tcSurname.setCellValueFactory(new PropertyValueFactory<client, String>("Surname")); //3 столбик
@@ -106,7 +114,7 @@ public class ContrForClient {
 			tfName.setText(cl.getName());
 			tfSurname.setText(cl.getSurname());
 			tfDate_of_autorization.setText(cl.getDate_of_autorization().toString());
-			tfAccess_level.setText(Integer.toString(cl.getAccess_level()));
+			cbStatus.setValue(cblStatus.get(cl.getAccess_level()));
 			tfInfo.setText(cl.getInfo());
 			tfPassword.setText(cl.getPassword());
 			
@@ -115,7 +123,7 @@ public class ContrForClient {
 			tfName.setText("");
 			tfSurname.setText("");
 			tfDate_of_autorization.setText("");
-			tfAccess_level.setText("");
+			cbStatus.setValue(cblStatus.get(0));
 			tfInfo.setText("");
 			tfPassword.setText("");
 		}
@@ -125,7 +133,7 @@ public class ContrForClient {
 		System.out.println("Work!");
 		if (isInputValid(1)) {
 			db.newClient(tfName.getText(),tfSurname.getText(),
-					Date.valueOf(tfDate_of_autorization.getText()), Integer.parseInt(tfAccess_level.getText()),tfInfo.getText(), tfPassword.getText());
+					Date.valueOf(tfDate_of_autorization.getText()), Integer.parseInt(cbStatus.getValue().substring(0, cbStatus.getValue().indexOf(" "))),tfInfo.getText(), tfPassword.getText());
 			tvclient.setItems(FXCollections.observableArrayList(db.getAllClient()));
 		}
 	}
@@ -141,7 +149,7 @@ public class ContrForClient {
 	private void handleUpd() throws IOException{
 		if (isInputValid(3)) {
 			db.updClient(Integer.parseInt(tfidclient.getText()),tfName.getText(),tfSurname.getText(),
-					Date.valueOf(tfDate_of_autorization.getText()), Integer.parseInt(tfAccess_level.getText()),tfInfo.getText(),tfPassword.getText());
+					Date.valueOf(tfDate_of_autorization.getText()), Integer.parseInt(cbStatus.getValue().substring(0, cbStatus.getValue().indexOf(" "))),tfInfo.getText(),tfPassword.getText());
 			tvclient.setItems(FXCollections.observableArrayList(db.getAllClient()));
 		}
 	}

@@ -5,15 +5,21 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class ContrForGroup {
 	@FXML private Label lNum;
@@ -24,7 +30,8 @@ public class ContrForGroup {
 	@FXML private TableColumn<Group, String> tcName_of_head_of_group;
 	@FXML private TableColumn<Group, Integer> tcNumber_of_group_members;
 	@FXML private TableColumn<Group, Integer> tcFaculty_idFaculty;
-	
+	@FXML private ObservableList<String> cblSID;
+	@FXML private ComboBox<String> cbSID = new ComboBox<String>();
 	@FXML private TextField tfidGroup;
 	@FXML private TextField tfNumber_of_group;
 	@FXML private TextField tfName_of_head_of_group;
@@ -35,6 +42,12 @@ public class ContrForGroup {
 	@FXML private Button bEdit;
 	@FXML private Button bDelete;
 	
+	@FXML private TextField tfSortStatus;
+	@FXML private TextField tfSortNum;
+	@FXML private Button bSortStatus;
+	@FXML private Button bSortNum;
+	
+	@FXML private Button bOtch;
 	private Database db = new Database();
 	
 	@FXML
@@ -71,10 +84,17 @@ public class ContrForGroup {
         	text += "Organisation Manager";
         }
         if (level_accept.equals("7")) {
+        	bNew.setDisable(true);
+        	bEdit.setDisable(true);
+        	bDelete.setDisable(true);
         	text += "Teacher";
         }
         
         lNum.setText(text);
+        
+        cblSID = FXCollections.observableArrayList(db.listAllFaculty());
+		cbSID.setItems(cblSID);
+		cbSID.setValue(cblSID.get(0));
         tcidGroup.setCellValueFactory(new PropertyValueFactory<Group, Integer>("idGroup")); //1 столбик
         tcNumber_of_group.setCellValueFactory(new PropertyValueFactory<Group, String>("Number_of_group")); //2 столбик
         tcName_of_head_of_group.setCellValueFactory(new PropertyValueFactory<Group, String>("Name_of_head_of_group")); //3 столбик
@@ -96,7 +116,7 @@ public class ContrForGroup {
 			tfNumber_of_group.setText(cl.getNumber_of_group());
 			tfName_of_head_of_group.setText(cl.getName_of_head_of_group());
 			tfNumber_of_group_members.setText(Integer.toString(cl.getNumber_of_group_members()));
-			tfFaculty_idFaculty.setText(Integer.toString(cl.getFaculty_idFaculty()));
+			cbSID.setValue(db.getFaculty(cl.getFaculty_idFaculty()));
 			
 		} else {
 			tfidGroup.setText("");
@@ -104,6 +124,7 @@ public class ContrForGroup {
 			tfName_of_head_of_group.setText("");
 			tfNumber_of_group_members.setText("");
 			tfFaculty_idFaculty.setText("");
+			cbSID.setValue(cblSID.get(0));
 			
 		}
 	}
@@ -111,7 +132,7 @@ public class ContrForGroup {
 	private void handleNew() throws IOException{
 		System.out.println("Work!");
 		if (isInputValid(1)) {
-			db.newGroup(tfNumber_of_group.getText(), tfName_of_head_of_group.getText(), 0, Integer.parseInt(tfFaculty_idFaculty.getText()));
+			db.newGroup(tfNumber_of_group.getText(), tfName_of_head_of_group.getText(), 0, Integer.parseInt(cbSID.getValue().substring(0, cbSID.getValue().indexOf(" "))));
 			tvGroup.setItems(FXCollections.observableArrayList(db.getAllGroup()));
 		}
 	}
@@ -126,7 +147,7 @@ public class ContrForGroup {
 	@FXML
 	private void handleUpd() throws IOException{
 		if (isInputValid(3)) {
-			db.updGroup(Integer.parseInt(tfidGroup.getText()), tfNumber_of_group.getText(), tfName_of_head_of_group.getText(), Integer.parseInt(tfNumber_of_group_members.getText()), Integer.parseInt(tfFaculty_idFaculty.getText()));
+			db.updGroup(Integer.parseInt(tfidGroup.getText()), tfNumber_of_group.getText(), tfName_of_head_of_group.getText(), Integer.parseInt(tfNumber_of_group_members.getText()), Integer.parseInt(cbSID.getValue().substring(0, cbSID.getValue().indexOf(" "))));
 			tvGroup.setItems(FXCollections.observableArrayList(db.getAllGroup()));
 		}
 	}
@@ -138,15 +159,6 @@ public class ContrForGroup {
 			}
 			if (tfName_of_head_of_group.getText() == null || tfName_of_head_of_group.getText().length() == 0) {
 				errorMessage += "No valid name of head!\n";
-			}
-			if (tfFaculty_idFaculty.getText() == null || tfFaculty_idFaculty.getText().length() == 0) {
-				errorMessage += "No valid faculty!\n";
-			}else {
-				try {
-					Integer.parseInt(tfFaculty_idFaculty.getText());
-				} catch (NumberFormatException e) {
-					errorMessage += "Format ID is not a number!\n";
-				}
 			}
 		}
 		if (i == 2) {
@@ -185,15 +197,6 @@ public class ContrForGroup {
 					errorMessage += "Format ID is not a number!\n";
 				}
 			}
-			if (tfFaculty_idFaculty.getText() == null || tfFaculty_idFaculty.getText().length() == 0) {
-				errorMessage += "No valid faculty!\n";
-			}else {
-				try {
-					Integer.parseInt(tfFaculty_idFaculty.getText());
-				} catch (NumberFormatException e) {
-					errorMessage += "Format ID is not a number!\n";
-				}
-			}	
 		}
 	
 		if (errorMessage.length() == 0) {
@@ -206,5 +209,31 @@ public class ContrForGroup {
 			alert.showAndWait();
 			return false;
 		}
+	}
+	@FXML
+	private void SortByStud() throws IOException {
+		tvGroup.setItems(FXCollections.observableArrayList(db.studSort(tfSortStatus.getText())));	
+	}
+	@FXML
+	private void SortByFac() throws IOException {
+		tvGroup.setItems(FXCollections.observableArrayList(db.facSort(tfSortNum.getText())));	
+	}
+	@FXML
+	private void pass() throws IOException {
+		tvGroup.setItems(FXCollections.observableArrayList(db.getAllGroup()));
+	}
+	@FXML
+	private void winOtchka() throws IOException {
+		Stage primaryStage = new Stage();
+		AnchorPane root = new AnchorPane();
+		
+		root = FXMLLoader.load(getClass().getResource("Otchet.fxml"));
+		
+		Scene scene = new Scene(root,600,700);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("Report");
+		primaryStage.show();
+		
 	}
 }

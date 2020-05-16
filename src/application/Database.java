@@ -171,6 +171,387 @@ public class Database {
 
 		
 	}
+	public List<Student> getConcrStudentInGroup(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<Student> lStudent = new ArrayList<Student>();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.student where idGroup = '" +id+"';");
+				while (rs.next()) {
+					lStudent.add( new Student(rs.getInt("idStudent"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Middle_name"),
+							rs.getDate("Date_of_birth"), rs.getString("Sex"), rs.getDate("Year_of_enrollment"), rs.getString("Status"), rs.getString("Type"), rs.getInt("idGroup")));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
+	public List<Student> statusSort(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<Student> lStudent = new ArrayList<Student>();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.student where Status = '" +id+"';");
+				while (rs.next()) {
+					lStudent.add( new Student(rs.getInt("idStudent"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Middle_name"),
+							rs.getDate("Date_of_birth"), rs.getString("Sex"), rs.getDate("Year_of_enrollment"), rs.getString("Status"), rs.getString("Type"), rs.getInt("idGroup")));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
+	public List<Student> groupSort(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<Student> lStudent = new ArrayList<Student>();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.student where idGroup = '" +id+"';");
+				while (rs.next()) {
+					lStudent.add( new Student(rs.getInt("idStudent"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Middle_name"),
+							rs.getDate("Date_of_birth"), rs.getString("Sex"), rs.getDate("Year_of_enrollment"), rs.getString("Status"), rs.getString("Type"), rs.getInt("idGroup")));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
+	public List<Faculty> totSort(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<Faculty> lStudent = new ArrayList<Faculty>();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.Faculty where Number_of_faculty_members = '" +id+"';");
+				while (rs.next()) {
+					lStudent.add(new Faculty(rs.getInt("idFaculty"), rs.getString("Name_of_faculty"), rs.getDate("Date_of_establishment_faculty"), rs.getString("Name_of_head_of_faculty"), rs.getInt("Number_of_faculty_members"),  rs.getInt("Members_now")));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
+	public List<Faculty> nowSort(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<Faculty> lStudent = new ArrayList<Faculty>();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.Faculty where Members_now = '" +id+"';");
+				while (rs.next()) {
+					lStudent.add(new Faculty(rs.getInt("idFaculty"), rs.getString("Name_of_faculty"), rs.getDate("Date_of_establishment_faculty"), rs.getString("Name_of_head_of_faculty"), rs.getInt("Number_of_faculty_members"),  rs.getInt("Members_now")));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
+	public List<Group> studSort(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<Group> lStudent = new ArrayList<Group>();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.group where Number_of_group_members = '" +id+"';");
+				while (rs.next()) {
+					lStudent.add(new Group(rs.getInt("idGroup"), rs.getString("Number_of_group"), rs.getString("Name_of_head_of_group"), rs.getInt("Number_of_group_members"), rs.getInt("Faculty_idFaculty")));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
+	public List<Group> facSort(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<Group> lStudent = new ArrayList<Group>();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.group where Faculty_idFaculty = '" +id+"';");
+				while (rs.next()) {
+					lStudent.add(new Group(rs.getInt("idGroup"), rs.getString("Number_of_group"), rs.getString("Name_of_head_of_group"), rs.getInt("Number_of_group_members"), rs.getInt("Faculty_idFaculty")));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
+	public Group getConcrGroup(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		Group lStudent = new Group();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.group where idGroup = " +id+";");
+				while (rs.next()) {
+					lStudent = new Group(rs.getInt("idGroup"), rs.getString("Number_of_group"), rs.getString("Name_of_head_of_group"), rs.getInt("Number_of_group_members"), rs.getInt("Faculty_idFaculty"));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
+	public Faculty getConcrFaculty(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		Faculty lStudent = new Faculty();
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.faculty where idFaculty = " +id+";");
+				while (rs.next()) {
+					lStudent = new Faculty(rs.getInt("idFaculty"), rs.getString("Name_of_faculty"), rs.getDate("Date_of_establishment_faculty"),rs.getString("Name_of_head_of_faculty"), rs.getInt("Number_of_faculty_members"), rs.getInt("Members_now"));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
 	public List<Organization> getAllOrg() throws IOException {
 		FileReader lvl= new FileReader("lvl");
         Scanner scan = new Scanner(lvl);
@@ -939,7 +1320,7 @@ public class Database {
 			try {
 				st = conn.createStatement();
 				res = st.executeUpdate("insert into cursach.faculty (Name_of_faculty, Date_of_establishment_faculty, Name_of_head_of_faculty, Number_of_faculty_members, Members_now) values('"
-						+ Name_of_faculty + "','" + Date_of_establishment_faculty + "','" + Name_of_head_of_faculty + "','" + Number_of_faculty_members + "','" + Members_now + "');");
+						+ Name_of_faculty + "','" + Date_of_establishment_faculty + "','" + Name_of_head_of_faculty + "','" + Number_of_faculty_members + "','" + "0" + "');");
 			} 
 			catch (SQLException e) {
 				res = 0;
@@ -1253,7 +1634,7 @@ public class Database {
 			try {
 				st = conn.createStatement();
 				res = st.executeUpdate("insert into cursach.group (Number_of_group, Name_of_head_of_group, Number_of_group_members, Faculty_idFaculty) values('"
-						+ Number_of_group + "','" + Name_of_head_of_group + "','" + Number_of_group_members + "','" + Faculty_idFaculty + "');");
+						+ Number_of_group + "','" + Name_of_head_of_group + "','" + "0" + "','" + Faculty_idFaculty + "');");
 			} 
 			catch (SQLException e) {
 				res = 0;
@@ -1381,6 +1762,44 @@ public class Database {
 		}
 		return lGroup;
 	}
+	public List<String> listAllFaculty() throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		List<String> lGroup = new ArrayList<String>();
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.faculty");
+				while (rs.next()) {
+					lGroup.add(String.valueOf(rs.getInt("idFaculty"))+" " +rs.getString("Name_of_faculty"));
+				}
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lGroup;
+	}
 	public List<String> listAllEc() throws IOException {
 		FileReader lvl= new FileReader("lvl");
         Scanner scan = new Scanner(lvl);
@@ -1438,6 +1857,44 @@ public class Database {
 				rs = st.executeQuery("select * from cursach.student where idStudent = '"+ i + "';");
 				while (rs.next()) {
 					ls += rs.getInt("idStudent") + " " + rs.getString("Name") + " " + rs.getString("Surname");
+				}
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return ls;
+	}
+	public String getFaculty(int i) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		String ls = "";
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.faculty where idFaculty = '"+ i + "';");
+				while (rs.next()) {
+					ls += rs.getInt("idFaculty") + " " + rs.getString("Name_of_faculty");
 				}
 			} 
 			catch (SQLException e) {
@@ -1577,7 +2034,7 @@ public class Database {
 		if (ls.equals(password)) {
 			FileWriter file = new FileWriter("lvl");
 			file.write(lvl+"\n");
-			file.write("root\n");
+			file.write("1\n");
 			file.write("admin\n");
 			file.write(text+"\n");
 			file.write(login+"\n");

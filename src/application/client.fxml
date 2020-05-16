@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -74,7 +75,6 @@
                </font>
             </Label>
             <TextField fx:id="tfInfo" layoutX="322.0" layoutY="364.0" prefHeight="25.0" prefWidth="121.0" />
-            <TextField fx:id="tfAccess_level" layoutX="323.0" layoutY="323.0" prefHeight="25.0" prefWidth="121.0" />
             <TextField fx:id="tfDate_of_autorization" layoutX="323.0" layoutY="279.0" prefHeight="25.0" prefWidth="121.0" />
             <TextField fx:id="tfSurname" layoutX="323.0" layoutY="241.0" prefHeight="25.0" prefWidth="121.0" />
             <TextField fx:id="tfName" layoutX="323.0" layoutY="200.0" prefHeight="25.0" prefWidth="121.0" />
@@ -87,6 +87,7 @@
             </Label>
             <Label layoutX="17.0" layoutY="16.0" text="ID:" />
             <Label fx:id="lNum" layoutX="38.0" layoutY="16.0" text="#" />
+            <ComboBox fx:id="cbStatus" layoutX="322.0" layoutY="323.0" prefHeight="25.0" prefWidth="121.0" />
          </children>
       </Pane>
    </children>
