@@ -44,7 +44,6 @@ public class calculator {
 	int gss5 = 6800;
 	int gss3 = 3800;
 	
-	private Database db = new Database();
 	Date dateNow = new Date();
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
@@ -80,18 +79,23 @@ public class calculator {
 	
 	@FXML
 	private void calculated() throws IOException {
-		int month = Integer.parseInt(tfDate.getText(5, 7));
+		int month = 0;
 		
-		int period = Integer.parseInt(tfPeriod.getText());
-		int monthgss = (cblGSS.indexOf(cbGSS.getValue()) == 0 ? 12 : cblGSS.indexOf(cbGSS.getValue()));
-		if (monthgss > period) {
-			monthgss = period;
-		}
+		int period = 0;
+		int monthgss = 0;
 		int[] session = {3, 9};
 		
 		int total = 0, t5 = 0, t4 = 0, t4and5 = 0;
 		
 		try {
+			df.parse(tfDate.getText()).getTime();
+			month = Integer.parseInt(tfDate.getText(5, 7));
+			
+			period = Integer.parseInt(tfPeriod.getText());
+			monthgss = (cblGSS.indexOf(cbGSS.getValue()) == 0 ? 12 : cblGSS.indexOf(cbGSS.getValue()));
+			if (monthgss > period) {
+				monthgss = period;
+			}
 			
 			// Если месяц в интервале от 3 до 8...
 			if (month >= 3 && month < 9) {
