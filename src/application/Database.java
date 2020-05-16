@@ -1999,7 +1999,7 @@ public class Database {
 		String ls = "";
 		String lvl = "";
 		String text = "";
-		if (openConnection("root", "admin")) {
+		if (openConnection("1", "admin")) {
 			try {
 				st = conn.createStatement();
 				rs = st.executeQuery("select * from cursach.client where idclient = '"+ login + "';");
