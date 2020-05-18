@@ -47,7 +47,7 @@ public class ContrForClient {
 	@FXML private ComboBox<String> cbStatus = new ComboBox<String>();
 	
 	private Database db = new Database();
-	private SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@FXML
 	private void initialize() throws IOException {
@@ -88,7 +88,7 @@ public class ContrForClient {
         
         lNum.setText(text);
         
-        cblStatus = FXCollections.observableArrayList("0 Op", "1 Student", "2 Student Manager","3 Faculty Manager","4 Finance", "5 Admin", "6 Org Manager", "7 Teacher");
+        cblStatus = FXCollections.observableArrayList("0 Оператор", "1 Студент", "2 Менеджер студентов","3 Менеджер факультетов","4 Финансист", "5 Админ", "6 Оргменеджер", "7 Учитель");
 		cbStatus.setItems(cblStatus);
 		
         tcidclient.setCellValueFactory(new PropertyValueFactory<client, Integer>("idclient")); //1 столбик

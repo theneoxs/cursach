@@ -43,7 +43,7 @@ public class ContrForFaculty {
 	@FXML private TextField tfSortStatus;
 	@FXML private TextField tfSortNum;
 	private Database db = new Database();
-	private SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@FXML
 	private void initialize() throws IOException {

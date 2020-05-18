@@ -68,11 +68,12 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TextField fx:id="tfSurname" layoutX="233.0" layoutY="255.0" prefHeight="25.0" prefWidth="200.0" promptText="Фамилия" AnchorPane.topAnchor="255.0" />
-      <TextField fx:id="tfName" layoutX="233.0" layoutY="215.0" prefHeight="25.0" prefWidth="200.0" promptText="Имя" AnchorPane.topAnchor="215.0" />
       <TextField fx:id="tfIdStudent" editable="false" layoutX="233.0" layoutY="175.0" prefHeight="25.0" prefWidth="200.0" promptText="ID" AnchorPane.topAnchor="175.0" />
+      <TextField fx:id="tfName" layoutX="233.0" layoutY="215.0" prefHeight="25.0" prefWidth="200.0" promptText="Имя" AnchorPane.topAnchor="215.0" />
+      <TextField fx:id="tfSurname" layoutX="233.0" layoutY="255.0" prefHeight="25.0" prefWidth="200.0" promptText="Фамилия" AnchorPane.topAnchor="255.0" />
       <TextField fx:id="tfMiddle_name" layoutX="233.0" layoutY="295.0" prefHeight="25.0" prefWidth="200.0" promptText="Отчество" AnchorPane.topAnchor="295.0" />
       <TextField fx:id="tfDate_of_birth" layoutX="233.0" layoutY="335.0" prefHeight="25.0" prefWidth="200.0" promptText="Дата рождения" AnchorPane.topAnchor="335.0" />
+      <ComboBox fx:id="cbSex" layoutX="233.0" layoutY="375.0" prefHeight="25.0" prefWidth="200.0" />
       <TextField fx:id="tfYear_of_enrollment" layoutX="233.0" layoutY="415.0" prefHeight="25.0" prefWidth="200.0" promptText="Год поступления" AnchorPane.topAnchor="415.0" />
       <Label layoutX="48.0" layoutY="175.0" text="ID студента">
          <font>
@@ -124,10 +125,9 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <ComboBox fx:id="cbStatus" layoutX="233.0" layoutY="455.0" prefHeight="25.0" prefWidth="200.0" />
       <ComboBox fx:id="cbMRID" layoutX="233.0" layoutY="496.0" prefHeight="25.0" prefWidth="200.0" />
       <ComboBox fx:id="cbSID" layoutX="233.0" layoutY="535.0" prefHeight="25.0" prefWidth="200.0" />
-      <ComboBox fx:id="cbSex" layoutX="233.0" layoutY="375.0" prefHeight="25.0" prefWidth="200.0" />
-      <ComboBox fx:id="cbStatus" layoutX="233.0" layoutY="455.0" prefHeight="25.0" prefWidth="200.0" />
       <Button fx:id="bClient" disable="true" layoutX="1048.0" layoutY="60.0" mnemonicParsing="false" onAction="#winClient" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Клиенты" textFill="WHITE" visible="false" />
       <Button fx:id="bInvite" disable="true" layoutX="901.0" layoutY="60.0" mnemonicParsing="false" onAction="#winInvite" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #25213E;" text="Запросы" textFill="WHITE" visible="false" />
       <Label layoutX="14.0" layoutY="14.0" text="ID:" />

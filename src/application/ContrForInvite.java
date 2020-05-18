@@ -37,7 +37,7 @@ public class ContrForInvite {
 	@FXML private Button bDenied;
 	
 	private Database db = new Database();
-	private SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@FXML
 	private void initialize() throws IOException {

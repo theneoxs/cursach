@@ -27,7 +27,7 @@ public class Database {
 	public boolean openConnection(String login, String password) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			this.conn = DriverManager.getConnection("jdbc:mysql://localhost/cursach?user="+login+"&password="+password+"");
+			this.conn = DriverManager.getConnection("jdbc:mysql://localhost/cursach?useUnicode=true&characterEncoding=utf8&user="+login+"&password="+password+"");
 		} 
 		catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			System.out.println("SQL error: " + e.getMessage());

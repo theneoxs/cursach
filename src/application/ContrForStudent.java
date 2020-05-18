@@ -74,7 +74,7 @@ public class ContrForStudent {
 	@FXML private Button bSortStatus;
 	@FXML private Button bSortNum;
 	private Database db = new Database();
-	private SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@FXML
 	private void initialize() throws IOException {
@@ -115,9 +115,9 @@ public class ContrForStudent {
         lNum.setText(text);
 		cblMRID = FXCollections.observableArrayList(db.listAllEc());
 		cbMRID.setItems(cblMRID);
-		cblSex = FXCollections.observableArrayList("Male", "Female");
+		cblSex = FXCollections.observableArrayList("Мужской", "Женский");
 		cbSex.setItems(cblSex);
-		cblStatus = FXCollections.observableArrayList("Learning", "Expelled","Finish","Vacation");
+		cblStatus = FXCollections.observableArrayList("Учится", "Отчислен","Завершил","Академотпуск");
 		cbStatus.setItems(cblStatus);
 		cblSID = FXCollections.observableArrayList(db.listAllGroup());
 		cbSID.setItems(cblSID);
