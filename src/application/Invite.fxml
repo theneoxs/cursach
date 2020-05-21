@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1250.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForInvite">
    <children>
-      <Pane layoutX="14.0" layoutY="209.0" prefHeight="72.0" prefWidth="427.0" style="-fx-border-color: black;">
+      <Pane layoutX="14.0" layoutY="189.0" prefHeight="72.0" prefWidth="427.0" style="-fx-border-color: black;">
          <children>
             <Button fx:id="bAccept" layoutX="30.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleAcc" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Принять" textFill="WHITE" />
             <Button fx:id="bDenied" layoutX="264.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleDen" prefHeight="36.0" prefWidth="134.0" style="-fx-background-color: #25213E;" text="Отклонить" textFill="WHITE" />
@@ -22,7 +22,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tvInvite" layoutX="465.0" layoutY="189.0" prefHeight="357.0" prefWidth="573.0">
+      <TableView fx:id="tvInvite" layoutX="509.0" layoutY="189.0" prefHeight="374.0" prefWidth="573.0">
          <columns>
             <TableColumn fx:id="tcidInvite" prefWidth="100.0" text="idInvite" />
             <TableColumn fx:id="tcidStudent" prefWidth="77.0" text="idStudent" />
@@ -31,37 +31,49 @@
             <TableColumn fx:id="tcdate" prefWidth="106.0" text="Date" />
          </columns>
       </TableView>
-      <Label layoutX="28.0" layoutY="328.0" text="ID приглашения">
+      <Label layoutX="28.0" layoutY="277.0" text="ID приглашения">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="521.0" text="Дата отправки">
+      <Label layoutX="28.0" layoutY="538.0" text="Дата отправки">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="28.0" layoutY="366.0" text="ID студента">
+      <Label layoutX="28.0" layoutY="315.0" text="ID студента">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="28.0" layoutY="407.0" text="ID организации">
+      <Label layoutX="28.0" layoutY="385.0" text="ID организации">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="28.0" layoutY="446.0" text="Сообщение приглашения">
+      <Label layoutX="29.0" layoutY="463.0" text="Сообщение приглашения">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="tfdate" editable="false" layoutX="305.0" layoutY="521.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfMessage" editable="false" layoutX="306.0" layoutY="446.0" prefHeight="60.0" prefWidth="121.0" />
-      <TextField fx:id="tfidOrganization" editable="false" layoutX="306.0" layoutY="407.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfidStudent" editable="false" layoutX="306.0" layoutY="366.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfidInvite" editable="false" layoutX="306.0" layoutY="328.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfdate" editable="false" layoutX="306.0" layoutY="538.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfMessage" editable="false" layoutX="307.0" layoutY="463.0" prefHeight="60.0" prefWidth="121.0" />
+      <TextField fx:id="tfFIO" editable="false" layoutX="306.0" layoutY="351.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidOrganization" editable="false" layoutX="306.0" layoutY="385.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidStudent" editable="false" layoutX="306.0" layoutY="315.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidInvite" editable="false" layoutX="306.0" layoutY="277.0" prefHeight="25.0" prefWidth="121.0" />
       <Label layoutX="14.0" layoutY="14.0" text="ID:" />
       <Label fx:id="lNum" layoutX="37.0" layoutY="14.0" text="#" />
+      <Label layoutX="28.0" layoutY="351.0" text="ФИО студента">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="424.0" text="Название организации">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfName_of_org" editable="false" layoutX="306.0" layoutY="424.0" prefHeight="25.0" prefWidth="121.0" />
    </children>
 </AnchorPane>

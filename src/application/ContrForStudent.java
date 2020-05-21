@@ -179,8 +179,8 @@ public class ContrForStudent {
 		System.out.println("Work!");
 		if (isInputValid(1)) {
 			db.newStudent(tfName.getText(), tfSurname.getText(), tfMiddle_name.getText(), Date.valueOf(tfDate_of_birth.getText()), cbSex.getValue(), 
-					Date.valueOf(tfYear_of_enrollment.getText()), cbStatus.getValue(), cbMRID.getValue().substring(0, cbMRID.getValue().indexOf(" ")), 
-					Integer.parseInt(cbSID.getValue().substring(0, cbSID.getValue().indexOf(" "))));
+					Date.valueOf(tfYear_of_enrollment.getText()), cbStatus.getValue(), cbMRID.getValue().substring(0, cbMRID.getValue().lastIndexOf(" ")), 
+					Integer.parseInt(cbSID.getValue().substring(0, cbSID.getValue().lastIndexOf(" "))));
 			tvStudent.setItems(FXCollections.observableArrayList(db.getAllStudent()));
 		}
 	}
@@ -196,8 +196,8 @@ public class ContrForStudent {
 	private void handleUpd() throws IOException{
 		if (isInputValid(3)) {
 			db.updStudent(Integer.parseInt(tfIdStudent.getText()), tfName.getText(), tfSurname.getText(), tfMiddle_name.getText(), Date.valueOf(tfDate_of_birth.getText()), cbSex.getValue(), 
-					Date.valueOf(tfYear_of_enrollment.getText()), cbStatus.getValue(), cbMRID.getValue().substring(0, cbMRID.getValue().indexOf(" ")), 
-					Integer.parseInt(cbSID.getValue().substring(0, cbSID.getValue().indexOf(" "))));
+					Date.valueOf(tfYear_of_enrollment.getText()), cbStatus.getValue(), cbMRID.getValue().substring(0, cbMRID.getValue().lastIndexOf(" ")), 
+					Integer.parseInt(cbSID.getValue().substring(0, cbSID.getValue().lastIndexOf(" "))));
 			tvStudent.setItems(FXCollections.observableArrayList(db.getAllStudent()));
 		}
 	}

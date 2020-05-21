@@ -47,12 +47,6 @@ public class Database {
 	}
 	public String chechAcc(String id, int ch, String Name, String Surname) throws IOException {
 		System.out.println("Do it!");
-		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
-        String login = scan.nextLine();
-        String password = scan.nextLine();
-        lvl.close();
         String i = "";
         ResultSet rs = null;
 		if (openConnection("1", "admin")) {
@@ -146,6 +140,48 @@ public class Database {
 				while (rs.next()) {
 					lStudent = new Student(rs.getInt("idStudent"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Middle_name"),
 							rs.getDate("Date_of_birth"), rs.getString("Sex"), rs.getDate("Year_of_enrollment"), rs.getString("Status"), rs.getString("Type"), rs.getInt("idGroup"));
+				}
+				i = 1;
+			} 
+			catch (SQLException e) {
+				
+				System.out.println("SQl exception: " + e.getMessage());
+				e.printStackTrace();
+				return null;
+			} 
+			finally {
+				try {
+					if (st != null)
+						st.close();
+					closeConnection();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				st = null;
+			}
+		}
+		return lStudent;
+
+		
+	}
+	public Organization getConcrOrg(String id) throws IOException {
+		FileReader lvl= new FileReader("lvl");
+        Scanner scan = new Scanner(lvl);
+        String level_accept = scan.nextLine();
+        String login = scan.nextLine();
+        String password = scan.nextLine();
+        lvl.close();
+		Statement st = null;
+		ResultSet rs = null;
+		Organization lStudent = null;
+		int i = 0;
+		if (openConnection(login, password)) {
+			try {
+				st = conn.createStatement();
+				rs = st.executeQuery("select * from cursach.organization where idOrganization = " +id+";");
+				while (rs.next()) {
+					lStudent = new Organization(rs.getInt("idOrganization"), rs.getString("Name_of_organization"), rs.getString("Name_of_head_of_organization"), rs.getString("Organization_direction"));
 				}
 				i = 1;
 			} 
@@ -642,7 +678,7 @@ public class Database {
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
-				rs = st.executeQuery("select * from cursach.organization join cursach.organization_has_student where Student_idStudent != '"+info+"' and Organization_idOrganization = organization.idOrganization;");
+				rs = st.executeQuery("select idOrganization, Name_of_organization, Name_of_head_of_organization, Organization_direction from cursach.organization EXCEPT select idOrganization, Name_of_organization, Name_of_head_of_organization, Organization_direction from cursach.organization join cursach.organization_has_student where Student_idStudent = '"+info+"' and Organization_idOrganization = idOrganization");
 				while (rs.next()) {
 					lStudent.add(new Organization(rs.getInt("idOrganization"), rs.getString("Name_of_organization"), rs.getString("Name_of_head_of_organization"), rs.getString("Organization_direction")));
 				}
@@ -744,16 +780,11 @@ public class Database {
 		return lStudent;
 	}
 	public List<Economy> getAllEconomy() throws IOException {
-		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
-        String login = scan.nextLine();
-        String password = scan.nextLine();
-        lvl.close();
+		
 		Statement st = null;
 		ResultSet rs = null;
 		List<Economy> lStudent = new ArrayList<Economy>();
-		if (openConnection(login, password)) {
+		if (openConnection("1", "admin")) {
 			try {
 				st = conn.createStatement();
 				rs = st.executeQuery("select * from cursach.economy");
@@ -1739,7 +1770,7 @@ public class Database {
 				st = conn.createStatement();
 				rs = st.executeQuery("select * from cursach.group");
 				while (rs.next()) {
-					lGroup.add(String.valueOf(rs.getInt("idGroup"))+" " +String.valueOf(rs.getInt("Number_of_group")));
+					lGroup.add(String.valueOf(rs.getInt("idGroup"))+" " +String.valueOf(rs.getString("Number_of_group")));
 				}
 			} 
 			catch (SQLException e) {
@@ -1801,17 +1832,11 @@ public class Database {
 		return lGroup;
 	}
 	public List<String> listAllEc() throws IOException {
-		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
-        String login = scan.nextLine();
-        String password = scan.nextLine();
-        lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		String a;
 		List<String> lEc = new ArrayList<String>();
-		if (openConnection(login, password)) {
+		if (openConnection("1", "admin")) {
 			
 			try {
 				st = conn.createStatement();

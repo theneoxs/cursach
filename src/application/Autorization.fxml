@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" scaleShape="false" style="-fx-background-color: #F4A460;" xmlns="http://javafx.com/javafx/8.0.161" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContrForAuth">
    <children>
-      <Label layoutX="51.0" layoutY="102.0" text="ID пользователя">
+      <Label layoutX="51.0" layoutY="102.0" text="ID пользователя (или номер зачетки)">
          <font>
             <Font size="16.0" />
          </font>

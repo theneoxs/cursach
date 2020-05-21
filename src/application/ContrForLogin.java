@@ -1,10 +1,13 @@
 package application;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -17,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ContrForLogin {
 	@FXML
@@ -110,7 +114,21 @@ public class ContrForLogin {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle(namefile);
 			primaryStage.show();
-			
+			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			    @Override
+			    public void handle(WindowEvent event) {
+			    	
+			    	try {
+			    		FileWriter file = new FileWriter("lvl");
+						file.write("");
+						file.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			    	
+			    }
+			});
 		}
 		else {
 			lDeny.setVisible(true);

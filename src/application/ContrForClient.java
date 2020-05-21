@@ -90,7 +90,8 @@ public class ContrForClient {
         
         cblStatus = FXCollections.observableArrayList("0 Оператор", "1 Студент", "2 Менеджер студентов","3 Менеджер факультетов","4 Финансист", "5 Админ", "6 Оргменеджер", "7 Учитель");
 		cbStatus.setItems(cblStatus);
-		
+		tfDate_of_autorization.setText("2000-01-01");
+		tfInfo.setText("None");
         tcidclient.setCellValueFactory(new PropertyValueFactory<client, Integer>("idclient")); //1 столбик
         tcName.setCellValueFactory(new PropertyValueFactory<client, String>("Name")); //2 столбик
         tcSurname.setCellValueFactory(new PropertyValueFactory<client, String>("Surname")); //3 столбик
@@ -174,15 +175,6 @@ public class ContrForClient {
 				}
 			}
 			
-			if (tfAccess_level.getText() == null || tfAccess_level.getText().length() == 0) {
-				errorMessage += "No valid level!\n";
-			} else {
-				try {
-					Integer.parseInt(tfAccess_level.getText());
-				} catch (NumberFormatException e) {
-					errorMessage += "Format ID is not a number!\n";
-				}
-			}
 			if (tfInfo.getText() == null || tfInfo.getText().length() == 0) {
 				errorMessage += "No valid info!\n";
 			} 
@@ -227,15 +219,6 @@ public class ContrForClient {
 				}
 			}
 			
-			if (tfAccess_level.getText() == null || tfAccess_level.getText().length() == 0) {
-				errorMessage += "No valid level!\n";
-			} else {
-				try {
-					Integer.parseInt(tfAccess_level.getText());
-				} catch (NumberFormatException e) {
-					errorMessage += "Format ID is not a number!\n";
-				}
-			}
 			if (tfInfo.getText() == null || tfInfo.getText().length() == 0) {
 				errorMessage += "No valid info!\n";
 			} 		

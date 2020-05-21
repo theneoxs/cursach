@@ -54,9 +54,9 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="tfdate" layoutX="317.0" layoutY="400.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfidOrganization" layoutX="317.0" layoutY="250.0" prefHeight="25.0" prefWidth="121.0" />
-      <TextField fx:id="tfidStudent" layoutX="317.0" layoutY="209.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfdate" editable="false" layoutX="317.0" layoutY="400.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidOrganization" editable="false" layoutX="317.0" layoutY="250.0" prefHeight="25.0" prefWidth="121.0" />
+      <TextField fx:id="tfidStudent" editable="false" layoutX="317.0" layoutY="209.0" prefHeight="25.0" prefWidth="121.0" />
       <TextArea fx:id="tfMessage" layoutX="317.0" layoutY="293.0" prefHeight="84.0" prefWidth="121.0" wrapText="true" />
       <Label layoutX="467.0" layoutY="175.0" text="Список существующих организаций">
          <font>

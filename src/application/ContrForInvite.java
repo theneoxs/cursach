@@ -32,6 +32,8 @@ public class ContrForInvite {
 	@FXML private TextField tfidOrganization;
 	@FXML private TextField tfMessage;
 	@FXML private TextField tfdate;
+	@FXML private TextField tfFIO;
+	@FXML private TextField tfName_of_org;
 	
 	@FXML private Button bAccept;
 	@FXML private Button bDenied;
@@ -39,6 +41,8 @@ public class ContrForInvite {
 	private Database db = new Database();
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
+	Student stud = null;
+	Organization org = null;
 	@FXML
 	private void initialize() throws IOException {
 		System.out.println("yeas");
@@ -87,6 +91,10 @@ public class ContrForInvite {
         tvInvite.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			try {
 				showTechDetails(newValue);
+				stud = db.getConcrStudent(Integer.toString(newValue.getIdStudent()));
+				tfFIO.setText(stud.getSurname() + " " + stud.getName() + " " + stud.getMiddle_name());
+				org = db.getConcrOrg(Integer.toString(newValue.getIdOrganization()));
+				tfName_of_org.setText(org.getName_of_organization());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -106,6 +114,8 @@ public class ContrForInvite {
 			tfidOrganization.setText("");
 			tfMessage.setText("");
 			tfdate.setText("");
+			tfFIO.setText("");
+			tfName_of_org.setText("");
 			
 		}
 	}

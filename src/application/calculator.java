@@ -2,7 +2,9 @@ package application;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,21 +39,26 @@ public class calculator {
 	@FXML private Label l4and5;
 	@FXML private Label l4;
 	
-	int st5 = 4500;
-	int st5and4 = 4200;
-	int st4 = 4000;
+	float st5 = 4500;
+	float st5and4 = 4000;
+	float st4 = 3500;
 	
 	int gss5 = 6800;
 	int gss3 = 3800;
-	
+	Database db = new Database();
+	List<Economy> ec = null;
 	Date dateNow = new Date();
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@FXML
 	private void initialize() throws IOException {
+		ec = db.getAllEconomy();
+		st5 = ec.get(3).getStudent_scholarship();
+		st4 = ec.get(1).getStudent_scholarship();
+		st5and4 = ec.get(2).getStudent_scholarship();
 		cblDolg = FXCollections.observableArrayList("Есть", "Нет", "Устраняю");
 		cbDolg.setItems(cblDolg);
-		cblObuch = FXCollections.observableArrayList("5", "5 и 4", "4", "С 3 или не успеваю");
+		cblObuch = FXCollections.observableArrayList(db.listAllEc());
 		cbObuch.setItems(cblObuch);
 		cblGSS = FXCollections.observableArrayList("Только получил", "Остался 1 месяц", "Осталось 2 месяца", "Осталось 3 месяца", "Осталось 4 месяца", "Осталось 5 месяцев",
 				"Осталось 6 месяцев", "Осталось 7 месяцев", "Осталось 8 месяцев", "Осталось 9 месяцев", "Осталось 10 месяцев", "Осталось 11 месяцев");
@@ -102,39 +109,19 @@ public class calculator {
 				int mon = month + period;
 				//...и если период получения не доходит до начала следующего семестра...
 				if (mon-9 < 0) {
-					//...и если обучился на 5...
-					if (cbObuch.getValue().equals("5")) {
-						total += st5 * (1 + period);
-					}
-					//...и если обучился на 4 и 5...
-					else if (cbObuch.getValue().equals("5 и 4")) {
-						total += st5and4 * (1 + period);
-					}
-					//...и если обучился на 4...
-					else if (cbObuch.getValue().equals("4")) {
-						total += st4 * (1 + period);
-					}
-					//...и если дурак...
-					else {
-						total = 0;
+					for (int i = 0; i < ec.size(); i++) {
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals(ec.get(i).getType())){
+							total += ec.get(i).getStudent_scholarship() * (1 + period);
+							
+						}
 					}
 				}
 				else {
-					//...и если обучился на 5...
-					if (cbObuch.getValue().equals("5")) {
-						total += st5 * (8-month+1);
-					}
-					//...и если обучился на 4 и 5...
-					else if (cbObuch.getValue().equals("5 и 4")) {
-						total += st5and4 * (8-month+1);
-					}
-					//...и если обучился на 4...
-					else if (cbObuch.getValue().equals("4")) {
-						total += st4 * (8-month+1);
-					}
-					//...и если дурак...
-					else {
-						total = 0;
+					for (int i = 0; i < ec.size(); i++) {
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals(ec.get(i).getType())){
+							total += ec.get(i).getStudent_scholarship() * (9 - month);
+							
+						}
 					}
 					//...и прогноз на будущее
 					period -= 8-month;
@@ -149,39 +136,19 @@ public class calculator {
 				int mon = month + period;
 				//...и если период получения не доходит до начала следующего семестра...
 				if (mon-15 < 0) {
-					//...и если обучился на 5...
-					if (cbObuch.getValue().equals("5")) {
-						total += st5 * (1 + period);
-					}
-					//...и если обучился на 4 и 5...
-					else if (cbObuch.getValue().equals("5 и 4")) {
-						total += st5and4 * (1 + period);
-					}
-					//...и если обучился на 4...
-					else if (cbObuch.getValue().equals("4")) {
-						total += st4 * (1 + period);
-					}
-					//...и если дурак...
-					else {
-						total = 0;
+					for (int i = 0; i < ec.size(); i++) {
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals(ec.get(i).getType())){
+							total += ec.get(i).getStudent_scholarship() * (1 + period);
+							
+						}
 					}
 				}
 				else {
-					//...и если обучился на 5...
-					if (cbObuch.getValue().equals("5")) {
-						total += st5 * (14-month+1);
-					}
-					//...и если обучился на 4 и 5...
-					else if (cbObuch.getValue().equals("5 и 4")) {
-						total += st5and4 * (14-month+1);
-					}
-					//...и если обучился на 4...
-					else if (cbObuch.getValue().equals("4")) {
-						total += st4 * (14-month+1);
-					}
-					//...и если дурак...
-					else {
-						total = 0;
+					for (int i = 0; i < ec.size(); i++) {
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals(ec.get(i).getType())){
+							total += ec.get(i).getStudent_scholarship() * (15 - month);
+							
+						}
 					}
 					//...и прогноз на будущее
 					period -= 14-month;
@@ -195,39 +162,19 @@ public class calculator {
 				int mon = month + period;
 				//...и если период получения не доходит до начала следующего семестра...
 				if (mon-3 < 0) {
-					//...и если обучился на 5...
-					if (cbObuch.getValue().equals("5")) {
-						total += st5 * (1 + period);
-					}
-					//...и если обучился на 4 и 5...
-					else if (cbObuch.getValue().equals("5 и 4")) {
-						total += st5and4 * (1 + period);
-					}
-					//...и если обучился на 4...
-					else if (cbObuch.getValue().equals("4")) {
-						total += st4 * (1 + period);
-					}
-					//...и если дурак...
-					else {
-						total = 0;
+					for (int i = 0; i < ec.size(); i++) {
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals(ec.get(i).getType())){
+							total += ec.get(i).getStudent_scholarship() * (1 + period);
+							
+						}
 					}
 				}
 				else {
-					//...и если обучился на 5...
-					if (cbObuch.getValue().equals("5")) {
-						total += st5 * (2-month+1);
-					}
-					//...и если обучился на 4 и 5...
-					else if (cbObuch.getValue().equals("5 и 4")) {
-						total += st5and4 * (2-month+1);
-					}
-					//...и если обучился на 4...
-					else if (cbObuch.getValue().equals("4")) {
-						total += st4 * (2-month+1);
-					}
-					//...и если дурак...
-					else {
-						total = 0;
+					for (int i = 0; i < ec.size(); i++) {
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals(ec.get(i).getType())){
+							total += ec.get(i).getStudent_scholarship() * (3 - month);
+							
+						}
 					}
 					//...и прогноз на будущее
 					period -= 2-month;
@@ -253,22 +200,22 @@ public class calculator {
 					//...и если период получения не доходит до начала следующего семестра...
 					if (mon-9 < 0) {
 						//...и если обучился на 5 или 5 и 4...
-						if ((cbObuch.getValue().equals("5") || cbObuch.getValue().equals("5 и 4") || cbObuch.getValue().equals("4")) && (!cbDolg.getValue().equals("Есть") && !cbDolg.getValue().equals("Устраняю"))) {
-							total += gss5 * (1 + monthgss);
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals("Нет")) {
+							total += gss3 * (1 + monthgss);
 						}
 						//...и если дурак...
 						else {
-							total += gss3 * (1 + monthgss);
+							total += gss5 * (1 + monthgss);
 						}
 					}
 					else {
 						//...и если обучился на 5...
-						if ((cbObuch.getValue().equals("5") || cbObuch.getValue().equals("5 и 4") || cbObuch.getValue().equals("4")) && (!cbDolg.getValue().equals("Есть") && !cbDolg.getValue().equals("Устраняю"))) {
-							total += gss5 * (8-month+1);
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals("Нет")) {
+							total += gss3 * (8-month+1);
 						}
 						//...и если дурак...
 						else {
-							total += gss3 * (8-month+1);
+							total += gss5 * (8-month+1);
 						}
 						//...и прогноз на будущее
 						monthgss -= 8-month;
@@ -283,23 +230,22 @@ public class calculator {
 					int mon = month + monthgss;
 					//...и если период получения не доходит до начала следующего семестра...
 					if (mon-15 < 0) {
-						//...и если обучился на 5...
-						if ((cbObuch.getValue().equals("5") || cbObuch.getValue().equals("5 и 4") || cbObuch.getValue().equals("4")) && (!cbDolg.getValue().equals("Есть") && !cbDolg.getValue().equals("Устраняю"))) {
-							total += gss5 * (1 + monthgss);
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals("Нет")) {
+							total += gss3 * (1 + monthgss);
 						}
 						//...и если дурак...
 						else {
-							total += gss3 * (1 + monthgss);
+							total += gss5 * (1 + monthgss);
 						}
 					}
 					else {
 						//...и если обучился на 5...
-						if ((cbObuch.getValue().equals("5") || cbObuch.getValue().equals("5 и 4") || cbObuch.getValue().equals("4")) && (!cbDolg.getValue().equals("Есть") && !cbDolg.getValue().equals("Устраняю"))) {
-							total += gss5 * (14-month+1);
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals("Нет")) {
+							total += gss3 * (14-month+1);
 						}
 						//...и если дурак...
 						else {
-							total += gss3 * (14-month+1);
+							total += gss5 * (14-month+1);
 						}
 						//...и прогноз на будущее
 						monthgss -= 14-month;
@@ -314,22 +260,22 @@ public class calculator {
 					//...и если период получения не доходит до начала следующего семестра...
 					if (mon-3 < 0) {
 						//...и если обучился на 5...
-						if ((cbObuch.getValue().equals("5") || cbObuch.getValue().equals("5 и 4") || cbObuch.getValue().equals("4")) && (!cbDolg.getValue().equals("Есть") && !cbDolg.getValue().equals("Устраняю"))) {
-							total += gss5 * (1 + monthgss);
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals("Нет")) {
+							total += gss3 * (1 + monthgss);
 						}
 						//...и если дурак...
 						else {
-							total += gss3 * (1 + monthgss);
+							total += gss5 * (1 + monthgss);
 						}
 					}
 					else {
 						//...и если обучился на 5...
-						if ((cbObuch.getValue().equals("5") || cbObuch.getValue().equals("5 и 4") || cbObuch.getValue().equals("4")) && (!cbDolg.getValue().equals("Есть") && !cbDolg.getValue().equals("Устраняю"))) {
-							total += gss5 * (2-month+1);
+						if (cbObuch.getValue().substring(0, cbObuch.getValue().lastIndexOf(" ")).equals("Нет")) {
+							total += gss3 * (2-month+1);
 						}
 						//...и если дурак...
 						else {
-							total += gss3 * (2-month+1);
+							total += gss5 * (2-month+1);
 						}
 						//...и прогноз на будущее
 						monthgss -= 2-month;
