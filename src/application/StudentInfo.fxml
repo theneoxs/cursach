@@ -79,10 +79,10 @@
             </Label>
             <TableView fx:id="tvOrganization" layoutX="570.0" layoutY="157.0" prefHeight="357.0" prefWidth="558.0">
                <columns>
-                  <TableColumn fx:id="tcidOrganization" prefWidth="75.0" text="idOrganization" />
-                  <TableColumn fx:id="tcName_of_organization" prefWidth="116.0" text="Name_of_organization" />
-                  <TableColumn fx:id="tcName_of_head_of_organization" prefWidth="255.0" text="Name_of_head_of_organization" />
-                  <TableColumn fx:id="tcOrganization_direction" prefWidth="75.0" text="Organization_direction" />
+                  <TableColumn fx:id="tcidOrganization" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="tcName_of_organization" prefWidth="116.0" text="Название" />
+                  <TableColumn fx:id="tcName_of_head_of_organization" prefWidth="255.0" text="Лидер" />
+                  <TableColumn fx:id="tcOrganization_direction" prefWidth="75.0" text="Расположение" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

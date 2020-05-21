@@ -53,16 +53,16 @@
       </Label>
       <TableView fx:id="tvStudent" layoutX="500.0" layoutY="158.0" prefHeight="495.0" prefWidth="461.0" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn fx:id="tcIdStudent" prefWidth="75.0" text="IdStudent" />
-          <TableColumn fx:id="tcName" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="tcSurname" prefWidth="75.0" text="Surname" />
-            <TableColumn fx:id="tcMiddle_name" prefWidth="89.0" text="Middle_name" />
-            <TableColumn fx:id="tcDate_of_birth" text="Date_of_birth" />
-            <TableColumn fx:id="tcSex" prefWidth="61.0" text="Sex" />
-            <TableColumn fx:id="tcYear_of_enrollment" prefWidth="116.0" text="Year_of_enrollment" />
-            <TableColumn fx:id="tcStatus" prefWidth="68.0" text="Status" />
-            <TableColumn fx:id="tcType" prefWidth="78.0" text="Type" />
-            <TableColumn fx:id="tcIdGroup" prefWidth="75.0" text="idGroup" />
+          <TableColumn fx:id="tcIdStudent" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="tcName" prefWidth="75.0" text="Имя" />
+            <TableColumn fx:id="tcSurname" prefWidth="75.0" text="Фамилия" />
+            <TableColumn fx:id="tcMiddle_name" prefWidth="89.0" text="Отчество" />
+            <TableColumn fx:id="tcDate_of_birth" text="День дождения" />
+            <TableColumn fx:id="tcSex" prefWidth="61.0" text="Пол" />
+            <TableColumn fx:id="tcYear_of_enrollment" prefWidth="116.0" text="Год " />
+            <TableColumn fx:id="tcStatus" prefWidth="68.0" text="Статус" />
+            <TableColumn fx:id="tcType" prefWidth="78.0" text="Стипендия" />
+            <TableColumn fx:id="tcIdGroup" prefWidth="75.0" text="ID группы" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

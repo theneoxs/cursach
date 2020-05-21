@@ -25,8 +25,8 @@
       </Label>
       <TableView fx:id="tvOrgStudent" layoutX="389.0" layoutY="170.0" prefHeight="416.0" prefWidth="287.0">
          <columns>
-            <TableColumn fx:id="tcOrganization_idOrganization" prefWidth="159.0" text="Organization_idOrganization" />
-            <TableColumn fx:id="tcStudent_idStudent" prefWidth="126.0" text="Student_idStudent" />
+            <TableColumn fx:id="tcOrganization_idOrganization" prefWidth="159.0" text="ID организации" />
+            <TableColumn fx:id="tcStudent_idStudent" prefWidth="126.0" text="ID студента" />
          </columns>
       </TableView>
       <Label layoutX="67.0" layoutY="221.0" text="ID организации">

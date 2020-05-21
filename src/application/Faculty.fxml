@@ -39,12 +39,12 @@
       </Label>
       <TableView fx:id="tvFaculty" editable="true" layoutX="667.0" layoutY="165.0" prefHeight="416.0" prefWidth="552.0">
          <columns>
-            <TableColumn fx:id="tcidFaculty" prefWidth="65.0" text="idFaculty" />
-            <TableColumn fx:id="tcName_of_faculty" prefWidth="45.0" text="Name_of_faculty" />
-            <TableColumn fx:id="tcDate_of_establishment_faculty" prefWidth="65.0" text="Date_of_establishment_faculty" />
-            <TableColumn fx:id="tcName_of_head_of_faculty" prefWidth="142.0" text="Name_of_head_of_faculty" />
-            <TableColumn fx:id="tcNumber_of_faculty_members" prefWidth="126.0" text="Number_of_faculty_members" />
-            <TableColumn fx:id="tcMembers_now" prefWidth="106.0" text="Members_now" />
+            <TableColumn fx:id="tcidFaculty" prefWidth="65.0" text="ID" />
+            <TableColumn fx:id="tcName_of_faculty" prefWidth="45.0" text="Название" />
+            <TableColumn fx:id="tcDate_of_establishment_faculty" prefWidth="65.0" text="Дата основания" />
+            <TableColumn fx:id="tcName_of_head_of_faculty" prefWidth="142.0" text="Декан" />
+            <TableColumn fx:id="tcNumber_of_faculty_members" prefWidth="126.0" text="Максимум студентов" />
+            <TableColumn fx:id="tcMembers_now" prefWidth="106.0" text="Кол-во студентов" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -70,7 +70,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="130.0" layoutY="465.0" text="Имя директора факультета">
+      <Label layoutX="130.0" layoutY="465.0" text="ФИО декана факультета">
          <font>
             <Font size="16.0" />
          </font>

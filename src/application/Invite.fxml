@@ -24,11 +24,11 @@
       </Label>
       <TableView fx:id="tvInvite" layoutX="509.0" layoutY="189.0" prefHeight="374.0" prefWidth="573.0">
          <columns>
-            <TableColumn fx:id="tcidInvite" prefWidth="100.0" text="idInvite" />
-            <TableColumn fx:id="tcidStudent" prefWidth="77.0" text="idStudent" />
-            <TableColumn fx:id="tcidOrganization" prefWidth="105.0" text="idOrganization" />
-            <TableColumn fx:id="tcMessage" prefWidth="182.0" text="Message" />
-            <TableColumn fx:id="tcdate" prefWidth="106.0" text="Date" />
+            <TableColumn fx:id="tcidInvite" prefWidth="100.0" text="ID" />
+            <TableColumn fx:id="tcidStudent" prefWidth="77.0" text="ID Студента" />
+            <TableColumn fx:id="tcidOrganization" prefWidth="105.0" text="ID организации" />
+            <TableColumn fx:id="tcMessage" prefWidth="182.0" text="Сообщение" />
+            <TableColumn fx:id="tcdate" prefWidth="106.0" text="Дата" />
          </columns>
       </TableView>
       <Label layoutX="28.0" layoutY="277.0" text="ID приглашения">

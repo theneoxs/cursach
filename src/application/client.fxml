@@ -25,13 +25,13 @@
             </Label>
             <TableView fx:id="tvclient" layoutX="486.0" layoutY="118.0" prefHeight="400.0" prefWidth="625.0">
               <columns>
-                <TableColumn fx:id="tcidclient" prefWidth="75.0" text="IdClient" />
-                <TableColumn fx:id="tcName" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="tcSurname" prefWidth="82.0" text="Surname" />
-                  <TableColumn fx:id="tcDate_of_autorization" prefWidth="127.0" text="Date_of_autorization" />
-                  <TableColumn fx:id="tcAccess_level" prefWidth="128.0" text="Access_level" />
-                  <TableColumn fx:id="tcInfo" prefWidth="211.0" text="Info" />
-                  <TableColumn fx:id="tcPassword" prefWidth="75.0" text="Password" />
+                <TableColumn fx:id="tcidclient" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="tcName" prefWidth="75.0" text="Имя" />
+                  <TableColumn fx:id="tcSurname" prefWidth="82.0" text="Фамилия" />
+                  <TableColumn fx:id="tcDate_of_autorization" prefWidth="127.0" text="Дава авторизации" />
+                  <TableColumn fx:id="tcAccess_level" prefWidth="128.0" text="Уровень доступа" />
+                  <TableColumn fx:id="tcInfo" prefWidth="211.0" text="Информация" />
+                  <TableColumn fx:id="tcPassword" prefWidth="75.0" text="Пароль" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

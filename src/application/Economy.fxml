@@ -13,8 +13,8 @@
    <children>
       <TableView fx:id="tvEconomy" layoutX="568.0" layoutY="175.0" prefHeight="416.0" prefWidth="718.0">
          <columns>
-            <TableColumn fx:id="tcType" prefWidth="347.0" text="Type" />
-            <TableColumn fx:id="tcStudent_scholarship" prefWidth="369.0" text="Student_scholarship" />
+            <TableColumn fx:id="tcType" prefWidth="347.0" text="Тип стипендии" />
+            <TableColumn fx:id="tcStudent_scholarship" prefWidth="369.0" text="Размер стипендии" />
          </columns>
       </TableView>
       <Pane layoutX="69.0" layoutY="410.0" prefHeight="65.0" prefWidth="461.0" style="-fx-border-color: black;">

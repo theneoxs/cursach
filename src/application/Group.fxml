@@ -53,11 +53,11 @@
       </Pane>
       <TableView fx:id="tvGroup" layoutX="334.0" layoutY="165.0" prefHeight="415.0" prefWidth="642.0">
         <columns>
-          <TableColumn fx:id="tcidGroup" prefWidth="93.0" text="idGroup" />
-          <TableColumn fx:id="tcNumber_of_group" prefWidth="180.0" text="Number_of_group" />
-            <TableColumn fx:id="tcName_of_head_of_group" prefWidth="145.0" text="Name_of_head_of_group" />
-            <TableColumn fx:id="tcNumber_of_group_members" prefWidth="275.0" text="Number_of_group_members" />
-            <TableColumn fx:id="tcFaculty_idFaculty" prefWidth="75.0" text="Faculty_idFaculty" />
+          <TableColumn fx:id="tcidGroup" prefWidth="93.0" text="ID" />
+          <TableColumn fx:id="tcNumber_of_group" prefWidth="180.0" text="Название группы" />
+            <TableColumn fx:id="tcName_of_head_of_group" prefWidth="145.0" text="Староста" />
+            <TableColumn fx:id="tcNumber_of_group_members" prefWidth="275.0" text="Число членов групппы" />
+            <TableColumn fx:id="tcFaculty_idFaculty" prefWidth="75.0" text="ID факультета" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
