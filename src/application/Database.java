@@ -1,6 +1,5 @@
 package application;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,11 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 
 public class Database {
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	private Connection conn;
+	@FXML private String password;
+	@FXML private String info;
+	@FXML private String login;
+	@FXML private Scanner scan;
+	@FXML private String level_accept;
 	public Database() {
 		this.conn = null;
 	}
@@ -85,8 +89,8 @@ public class Database {
 	// Получает информацию обо всех экземплярах техники
 	public List<Student> getAllStudent() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+        level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -124,15 +128,14 @@ public class Database {
 	}
 	public Student getConcrStudent(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		Student lStudent = new Student();
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -141,7 +144,6 @@ public class Database {
 					lStudent = new Student(rs.getInt("idStudent"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Middle_name"),
 							rs.getDate("Date_of_birth"), rs.getString("Sex"), rs.getDate("Year_of_enrollment"), rs.getString("Status"), rs.getString("Type"), rs.getInt("idGroup"));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -167,15 +169,14 @@ public class Database {
 	}
 	public Organization getConcrOrg(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		Organization lStudent = null;
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -183,7 +184,6 @@ public class Database {
 				while (rs.next()) {
 					lStudent = new Organization(rs.getInt("idOrganization"), rs.getString("Name_of_organization"), rs.getString("Name_of_head_of_organization"), rs.getString("Organization_direction"));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -209,15 +209,14 @@ public class Database {
 	}
 	public List<Student> getConcrStudentInGroup(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		List<Student> lStudent = new ArrayList<Student>();
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -226,7 +225,6 @@ public class Database {
 					lStudent.add( new Student(rs.getInt("idStudent"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Middle_name"),
 							rs.getDate("Date_of_birth"), rs.getString("Sex"), rs.getDate("Year_of_enrollment"), rs.getString("Status"), rs.getString("Type"), rs.getInt("idGroup")));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -252,15 +250,14 @@ public class Database {
 	}
 	public List<Student> statusSort(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		List<Student> lStudent = new ArrayList<Student>();
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -269,7 +266,6 @@ public class Database {
 					lStudent.add( new Student(rs.getInt("idStudent"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Middle_name"),
 							rs.getDate("Date_of_birth"), rs.getString("Sex"), rs.getDate("Year_of_enrollment"), rs.getString("Status"), rs.getString("Type"), rs.getInt("idGroup")));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -295,15 +291,14 @@ public class Database {
 	}
 	public List<Student> groupSort(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		List<Student> lStudent = new ArrayList<Student>();
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -312,7 +307,6 @@ public class Database {
 					lStudent.add( new Student(rs.getInt("idStudent"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Middle_name"),
 							rs.getDate("Date_of_birth"), rs.getString("Sex"), rs.getDate("Year_of_enrollment"), rs.getString("Status"), rs.getString("Type"), rs.getInt("idGroup")));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -338,15 +332,14 @@ public class Database {
 	}
 	public List<Faculty> totSort(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		List<Faculty> lStudent = new ArrayList<Faculty>();
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -354,7 +347,6 @@ public class Database {
 				while (rs.next()) {
 					lStudent.add(new Faculty(rs.getInt("idFaculty"), rs.getString("Name_of_faculty"), rs.getDate("Date_of_establishment_faculty"), rs.getString("Name_of_head_of_faculty"), rs.getInt("Number_of_faculty_members"),  rs.getInt("Members_now")));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -380,15 +372,14 @@ public class Database {
 	}
 	public List<Faculty> nowSort(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		List<Faculty> lStudent = new ArrayList<Faculty>();
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -396,7 +387,6 @@ public class Database {
 				while (rs.next()) {
 					lStudent.add(new Faculty(rs.getInt("idFaculty"), rs.getString("Name_of_faculty"), rs.getDate("Date_of_establishment_faculty"), rs.getString("Name_of_head_of_faculty"), rs.getInt("Number_of_faculty_members"),  rs.getInt("Members_now")));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -422,15 +412,15 @@ public class Database {
 	}
 	public List<Group> studSort(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		List<Group> lStudent = new ArrayList<Group>();
-		int i = 0;
+
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -438,7 +428,6 @@ public class Database {
 				while (rs.next()) {
 					lStudent.add(new Group(rs.getInt("idGroup"), rs.getString("Number_of_group"), rs.getString("Name_of_head_of_group"), rs.getInt("Number_of_group_members"), rs.getInt("Faculty_idFaculty")));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -464,15 +453,14 @@ public class Database {
 	}
 	public List<Group> facSort(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		List<Group> lStudent = new ArrayList<Group>();
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -480,7 +468,6 @@ public class Database {
 				while (rs.next()) {
 					lStudent.add(new Group(rs.getInt("idGroup"), rs.getString("Number_of_group"), rs.getString("Name_of_head_of_group"), rs.getInt("Number_of_group_members"), rs.getInt("Faculty_idFaculty")));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -506,15 +493,14 @@ public class Database {
 	}
 	public Group getConcrGroup(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		Group lStudent = new Group();
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -522,7 +508,6 @@ public class Database {
 				while (rs.next()) {
 					lStudent = new Group(rs.getInt("idGroup"), rs.getString("Number_of_group"), rs.getString("Name_of_head_of_group"), rs.getInt("Number_of_group_members"), rs.getInt("Faculty_idFaculty"));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -548,15 +533,14 @@ public class Database {
 	}
 	public Faculty getConcrFaculty(String id) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
 		Statement st = null;
 		ResultSet rs = null;
 		Faculty lStudent = new Faculty();
-		int i = 0;
 		if (openConnection(login, password)) {
 			try {
 				st = conn.createStatement();
@@ -564,7 +548,6 @@ public class Database {
 				while (rs.next()) {
 					lStudent = new Faculty(rs.getInt("idFaculty"), rs.getString("Name_of_faculty"), rs.getDate("Date_of_establishment_faculty"),rs.getString("Name_of_head_of_faculty"), rs.getInt("Number_of_faculty_members"), rs.getInt("Members_now"));
 				}
-				i = 1;
 			} 
 			catch (SQLException e) {
 				
@@ -590,8 +573,8 @@ public class Database {
 	}
 	public List<Organization> getAllOrg() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -628,8 +611,8 @@ public class Database {
 	}
 	public List<Organization> getAllConcrOrg(String info) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -667,8 +650,8 @@ public class Database {
 	}
 	public List<Organization> getAllExOrg(String info) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -705,8 +688,8 @@ public class Database {
 	}
 	public List<Group> getAllGroup() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -743,8 +726,8 @@ public class Database {
 	}
 	public List<Faculty> getAllFaculty() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -814,8 +797,8 @@ public class Database {
 	}
 	public List<OrgStudent> getAllOrgS() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -852,8 +835,8 @@ public class Database {
 	}
 	public List<Invite> getAllInvite() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -890,8 +873,8 @@ public class Database {
 	}
 	public List<client> getAllClient() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -929,8 +912,8 @@ public class Database {
 	public boolean newClient(String Name, String Surname, Date Date_of_autorization, Integer Access_level, String Info, String Password) throws IOException {
 		System.out.println("Do it!");
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -964,8 +947,8 @@ public class Database {
 	}
 	public boolean delClient(Integer idclient) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -997,8 +980,8 @@ public class Database {
 	}
 	public boolean updClient(Integer idclient, String Name, String Surname, Date Date_of_autorization, Integer Access_level, String Info, String Password) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1032,8 +1015,8 @@ public class Database {
 	public boolean deniedInvite(Integer idInvite) throws IOException {
 		System.out.println("Do it!");
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1066,8 +1049,8 @@ public class Database {
 	}
 	public boolean addInvite(Integer idStudent, Integer idOrganization, String Message, Date Date) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1100,8 +1083,8 @@ public class Database {
 	}
 	public boolean acceptInvite(Integer idInvite, Integer idStudent, Integer idOrganization) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1136,8 +1119,8 @@ public class Database {
 	public boolean newOrgS(Integer Organization_idOrganization, Integer Student_idStudent) throws IOException {
 		System.out.println("Do it!");
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1171,8 +1154,8 @@ public class Database {
 	}
 	public boolean delOrgS(Integer Organization_idOrganization, Integer Student_idStudent) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1204,8 +1187,8 @@ public class Database {
 	}
 	public boolean updOrgS(Integer Organization_idOrganization, Integer Student_idStudent) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1238,8 +1221,8 @@ public class Database {
 	}
 	public boolean newEconomy(String Type, Float Student_scholarship) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1273,8 +1256,8 @@ public class Database {
 	}
 	public boolean delEconomy(String Type) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1306,8 +1289,8 @@ public class Database {
 	}
 	public boolean updEconomy(String Type, Float Student_scholarship) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1340,8 +1323,8 @@ public class Database {
 	}
 	public boolean newFaculty(String Name_of_faculty, Date Date_of_establishment_faculty, String Name_of_head_of_faculty, Integer Number_of_faculty_members, Integer Members_now) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1375,8 +1358,8 @@ public class Database {
 	}
 	public boolean delFaculty(Integer idFaculty) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1408,8 +1391,8 @@ public class Database {
 	}
 	public boolean updFaculty(Integer idFaculty, String Name_of_faculty, Date Date_of_establishment_faculty, String Name_of_head_of_faculty, Integer Number_of_faculty_members, Integer Members_now) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1442,8 +1425,8 @@ public class Database {
 	}
 	public boolean newStudent(String Name, String Surname, String Middle_name, Date Date_of_birth, String Sex, Date Year_of_enrollment, String Status, String Type, int idGroup) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1483,8 +1466,8 @@ public class Database {
 	
 	public boolean updStudent(Integer idStudent, String Name, String Surname, String Middle_name, Date Date_of_birth, String Sex, Date Year_of_enrollment, String Status, String Type, int idGroup) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1518,8 +1501,8 @@ public class Database {
 	//удаление техники
 	public boolean delStudent(Integer idStudent) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1552,8 +1535,8 @@ public class Database {
 	}
 	public boolean newOrg(String Name_of_organization, String Name_of_head_of_organization, String Organization_direction) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1587,8 +1570,8 @@ public class Database {
 	}
 	public boolean delOrg(Integer idOrganization) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1620,8 +1603,8 @@ public class Database {
 	}
 	public boolean updOrg(Integer idOrganization, String Name_of_organization, String Name_of_head_of_organization, String Organization_direction) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1654,8 +1637,8 @@ public class Database {
 	}
 	public boolean newGroup(String Number_of_group, String Name_of_head_of_group, Integer Number_of_group_members, Integer Faculty_idFaculty) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1689,8 +1672,8 @@ public class Database {
 	}
 	public boolean delGroup(Integer idGroup) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1722,8 +1705,8 @@ public class Database {
 	}
 	public boolean updGroup(Integer idGroup, String Number_of_group, String Name_of_head_of_group, Integer Number_of_group_members, Integer Faculty_idFaculty) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1757,8 +1740,8 @@ public class Database {
 	//создание нового подразделения
 	public List<String> listAllGroup() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1795,8 +1778,8 @@ public class Database {
 	}
 	public List<String> listAllFaculty() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1868,8 +1851,8 @@ public class Database {
 	}
 	public String getStudent(int i) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1906,8 +1889,8 @@ public class Database {
 	}
 	public String getFaculty(int i) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1944,8 +1927,8 @@ public class Database {
 	}
 	public String getEconomy(String i) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();
@@ -1982,8 +1965,8 @@ public class Database {
 	}
 	public String getGroup(int i) throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
-        String level_accept = scan.nextLine();
+         scan = new Scanner(lvl);
+         level_accept = scan.nextLine();
         String login = scan.nextLine();
         String password = scan.nextLine();
         lvl.close();

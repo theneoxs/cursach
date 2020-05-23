@@ -2,10 +2,7 @@ package application;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
-import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -52,16 +49,18 @@ public class ContrForInfo {
 	@FXML private ComboBox<String> cbStatus = new ComboBox<String>();
 	@FXML private Button bZayavka;
 	private Database db = new Database();
-	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-	
+	@FXML private String password;
+	@FXML private String info;
+	@FXML private String login;
+	@FXML private Scanner scan;
 	@FXML
 	private void initialize() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
+        scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
-        String login = scan.nextLine();
-        String password = scan.nextLine();
-        String info = scan.nextLine();
+        login = scan.nextLine();
+        password = scan.nextLine();
+        info = scan.nextLine();
         String id = scan.nextLine();
         lvl.close();
         String text = id + ",  Access Level: ";

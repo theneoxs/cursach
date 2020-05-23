@@ -24,6 +24,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ContrOnchet extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@FXML private Label lNum;
 	private  JFileChooser fileChooser = new JFileChooser();
 	@FXML private TableView<Student> tvStudent;
@@ -51,6 +55,11 @@ public class ContrOnchet extends JFrame{
 	private Database db = new Database();
 	Date dateNow = new Date();
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	@FXML private String password;
+	@FXML private String info;
+	@FXML private String login;
+	@FXML private Scanner scan;
+	@FXML private File dir;
 	@FXML
 	private void initialize() throws IOException {
 		// Локализация компонентов окна JFileChooser
@@ -69,11 +78,11 @@ public class ContrOnchet extends JFrame{
 
 		System.out.println("yeas");
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
+         scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
-        String login = scan.nextLine();
-        String password = scan.nextLine();
-        String info = scan.nextLine();
+         login = scan.nextLine();
+         password = scan.nextLine();
+         info = scan.nextLine();
         String id = scan.nextLine();
         lvl.close();
         String text = id + ",  Access Level: ";
@@ -155,7 +164,7 @@ public class ContrOnchet extends JFrame{
 		String filename = "Отчет о группе " + tfNumGroup.getText() + " от " + df.format(dateNow) + ".txt";
 		System.out.println(filename);
 		System.out.println(path);
-		File dir = new File(path, filename);
+		dir = new File(path, filename);
 		FileWriter file = new FileWriter(path + "/"+filename);
 		file.write("ОТЧЕТ ПО ГРУППЕ "+tfNumGroup.getText()+"\n--------------\n");
 		file.write("Название группы: "+group.getNumber_of_group()+"\n");

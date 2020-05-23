@@ -4,8 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-import javafx.collections.FXCollections;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class ContrForAdmin {
 	@FXML private Label lNum;
@@ -25,15 +22,19 @@ public class ContrForAdmin {
 	@FXML private Button bOrgS;
 	@FXML private Button bClient;
 	@FXML private Button bInvite;
+	@FXML private String info;
+	@FXML private String password;
+	@FXML private String login;
+	@FXML private Scanner scan;
 	
 	@FXML
 	private void initialize() throws IOException {
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
+        scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
-        String login = scan.nextLine();
-        String password = scan.nextLine();
-        String info = scan.nextLine();
+        login = scan.nextLine();
+        password = scan.nextLine();
+        info = scan.nextLine();
         String id = scan.nextLine();
         lvl.close();
         String text = id + ",  Access Level: ";

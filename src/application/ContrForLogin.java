@@ -5,19 +5,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -35,6 +30,7 @@ public class ContrForLogin {
 	private Label lDeny;
 	public static int level_accept = 0;
 	private Database db = new Database();
+	private Scanner scan;
 	@FXML
 	private void initialize() {
 		lDeny.setVisible(false);
@@ -49,7 +45,7 @@ public class ContrForLogin {
 		int x = 1200;
 		int y = 700;
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
+        scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
         lvl.close();
         

@@ -3,7 +3,6 @@ package application;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import javafx.collections.FXCollections;
@@ -39,19 +38,22 @@ public class ContrForInvite {
 	@FXML private Button bDenied;
 	
 	private Database db = new Database();
-	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
 	Student stud = null;
 	Organization org = null;
+	@FXML private String password;
+	@FXML private String info;
+	@FXML private String login;
+	@FXML private Scanner scan;
 	@FXML
 	private void initialize() throws IOException {
 		System.out.println("yeas");
 		FileReader lvl= new FileReader("lvl");
-        Scanner scan = new Scanner(lvl);
+        scan = new Scanner(lvl);
         String level_accept = scan.nextLine();
-        String login = scan.nextLine();
-        String password = scan.nextLine();
-        String info = scan.nextLine();
+        login = scan.nextLine();
+        password = scan.nextLine();
+        info = scan.nextLine();
         String id = scan.nextLine();
         lvl.close();
         String text = id + ",  Access Level: ";
